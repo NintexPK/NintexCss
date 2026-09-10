@@ -482,6 +482,25 @@
   font-weight: 600 !important;
 }
 
+/* Cambiar el color del nombre del archivo*/
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 a,
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 [class*="file-name"] {
+  color: var(--pk-ink) !important;
+  text-decoration: none !important;
+}
+
+/* Cambiar los iconos (PDF, Papelera)*/
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 ntx-icon svg path,
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 mat-icon svg path,
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 .nx-uploaded-files-list svg path {
+  fill: var(--pk-primary) !important;
+}
+
+/* Darle el color suave al borde de la cajita del archivo */
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 [class*="uploaded-file-item"] {
+  border-color: var(--pk-line) !important;
+}
+
 
 /* 14. ANIMACIONES  */
 @keyframes pkIn {
