@@ -452,18 +452,21 @@
 }
 
 /*13. ARCHIVOS ADJUNTOS*/
-[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1,
-[dir] .nx-theme-styles .nx-theme-form .drop-container {
-  border: none !important; 
-  background: transparent !important; 
-  border-radius: var(--pk-radius) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
-  transition: all 0.3s ease !important;
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
-/* Añadimos un poco de espacio extra por dentro para que respire */
+/* Aplicar el efecto de cristal y sombra SOLO a la caja interior */
 [dir] .nx-theme-styles .nx-theme-form .drop-container {
+  border: none !important; 
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
   padding: 24px !important;
+  transition: all 0.3s ease !important;
 }
 
 [dir] .nx-theme-styles .nx-theme-form .drop-container:hover,
@@ -473,7 +476,7 @@
   transform: translateY(-2px); 
 }
 
-/* 3. Ajustar el color del texto */
+/* Ajustar el color del texto */
 [dir] .nx-theme-styles .nx-theme-form .drag-file-label {
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
