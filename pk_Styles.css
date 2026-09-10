@@ -37,8 +37,8 @@
   height:300%;
   background-image:url("https://grupopikolin.sharepoint.com/SiteAssets/__sitelogo__Logotipo_Pikolin_group.png");
   background-repeat:repeat;
-  background-size:340px auto;
-  opacity:.09;
+  background-size:350px auto;
+  opacity:.04;
   filter:grayscale(.1);
   transform:rotate(-16deg);
   pointer-events:none;
