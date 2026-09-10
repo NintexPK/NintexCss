@@ -375,7 +375,7 @@
   letter-spacing: -0.01em;
 }
 
-/*  10. BOTONES button-1 = Botón principal button-2 = Botón secundario */
+/*  10. BOTONES PRINCIPALES Y SECUNDARIOS */
 [dir] .nx-theme-styles .nx-theme-form :is(.nx-theme-button-1,.nx-theme-button-2) {
   border-radius:var(--pk-radius) !important;
   font-weight:700 !important;
@@ -451,7 +451,10 @@
   background:var(--pk-primary-soft) !important;
 }
 
-/*13. ARCHIVOS ADJUNTOS*/
+
+/* --- 13. ADJUNTOS --- */
+
+/* 1. Limpiar el contenedor padre */
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
   border: none !important;
   background: transparent !important;
@@ -459,7 +462,7 @@
   padding: 0 !important;
 }
 
-/* Aplicar el efecto de cristal y sombra SOLO a la caja interior */
+/* 2. Caja interior (Cristal) */
 [dir] .nx-theme-styles .nx-theme-form .drop-container {
   border: none !important; 
   background: rgba(255, 255, 255, 0.7) !important;
@@ -469,40 +472,122 @@
   transition: all 0.3s ease !important;
 }
 
+/* 3. ARREGLO FONDO BLANCO: Hacer transparente la barra interior que envuelve texto y botón */
+[dir] .nx-theme-styles .nx-theme-form .drop-container .nx-upload-action-bar {
+  background: transparent !important;
+}
+
+/* 4. ARREGLO HOVER Y ARRASTRE: Iluminar la caja */
 [dir] .nx-theme-styles .nx-theme-form .drop-container:hover,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-drop-over-1 .drop-container {
   background: var(--pk-primary-soft) !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
-  transform: translateY(-2px); 
 }
 
-/* Ajustar el color del texto */
+/* 6. Ajustar el color del texto de arrastrar */
 [dir] .nx-theme-styles .nx-theme-form .drag-file-label {
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
 }
 
-/* Cambiar el color del nombre del archivo*/
-[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 a,
-[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 [class*="file-name"] {
+/* --- 7. ESTILOS DE LOS ARCHIVOS SUBIDOS --- */
+
+/* 7.1. Letras */
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item a,
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item a * {
   color: var(--pk-ink) !important;
   text-decoration: none !important;
 }
 
-/* Cambiar los iconos (PDF, Papelera)*/
-[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 ntx-icon svg path,
-[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 mat-icon svg path,
-[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 .nx-uploaded-files-list svg path {
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item .upload-item-top {
+  border: 1px solid var(--pk-primary) !important;
+  border-radius: var(--pk-radius) !important; 
+}
+
+/* 7.3. Icono Documento (PDF) */
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item a svg * {
+  fill: #ffffff !important; 
+  stroke: var(--pk-primary) !important;
+  stroke-width: 1.2px !important; 
+  color: #ffffff !important; 
+}
+/* 7.4. Icono Papelera*/
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button,
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button ntx-icon,
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button mat-icon,
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button svg {
+  color: var(--pk-primary) !important;
   fill: var(--pk-primary) !important;
 }
 
-/* Darle el color suave al borde de la cajita del archivo */
-[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 [class*="uploaded-file-item"] {
-  border-color: var(--pk-line) !important;
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button:hover {
+  background-color: transparent !important;
+}
+
+/*  14. POP-OVER DE CONFIRMACIÓN (Eliminar archivo)  */
+
+/* 1. Elevar la caja del archivo para que el menú no se esconda detrás de otros campos */
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item {
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* 2. ELIMINAMOS LA DOBLE CAJA*/
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+}
+
+/* 3. Color del texto "¿Remove file?" */
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list .nx-action-message {
+  color: var(--pk-ink) !important;
+  font-weight: 600 !important;
+  margin-bottom: 12px !important;
+}
+
+/* 4. Botones del Pop-over */
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list button {
+  border-radius: var(--pk-radius) !important;
+  font-weight: 700 !important;
+  padding: 8px 16px !important;
+  transition: all .2s ease !important;
+}
+
+/* Botón Cancelar */
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"],
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"]:focus {
+  background: linear-gradient(180deg, var(--pk-white), #FBF9F8) !important;
+  color: var(--pk-muted) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  box-shadow: 0 1px 2px rgba(32, 26, 25, 0.04) !important;
+  outline: none !important; /* Matamos el borde de selección nativo */
+}
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover {
+  border-color: var(--pk-primary) !important;
+  color: var(--pk-primary-dark) !important;
+  background: var(--pk-primary-soft) !important;
+}
+
+/* Botón Eliminar  */
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"],
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"]:focus {
+  background: var(--pk-grad-hero) !important;
+  color: var(--pk-white) !important;
+  border: none !important;
+  box-shadow: 0 4px 8px rgba(178,10,16,.15) !important;
+  outline: none !important;
+}
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover {
+  background: var(--pk-grad-hero) !important; 
+  color: var(--pk-white) !important;
+  box-shadow: 0 6px 14px rgba(178,10,16,.3) !important;
+  transform: translateY(-2px) !important; 
 }
 
 
-/* 14. ANIMACIONES  */
+/* 15. ANIMACIONES  */
 @keyframes pkIn {
   from {
     opacity:0;
