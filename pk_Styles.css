@@ -31,10 +31,10 @@
   content:"" !important;
   display:block !important;
   position:absolute !important;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
+  top:-100%;
+  left:-100%;
+  width:300%;
+  height:300%;
   background-image:url("https://grupopikolin.sharepoint.com/SiteAssets/__sitelogo__Logotipo_Pikolin_group.png");
   background-repeat:repeat;
   background-size:340px auto;
@@ -50,7 +50,7 @@
   display:block !important;
   position:absolute !important;
   inset:0;
-  background:radial-gradient(ellipse 150% 150% at 100% 0%,transparent 0%,rgba(255,255,255,.4) 60%,var(--pk-white) 100%);
+  background:radial-gradient(ellipse 180% 180% at 100% 0%,transparent 0%,rgba(255,255,255,.4) 60%,var(--pk-white) 100%);
   pointer-events:none;
   z-index:-1;
 }
@@ -290,6 +290,12 @@
   font-size: 14px !important;
 }
 
+/*Descripción del campo*/
+[dir] .nx-theme-styles .nx-theme-form .nx-help-text,
+[dir] .nx-theme-styles .nx-theme-form .nx-help-text * {
+  color: var(--pk-ink) !important;
+}
+
 /*   7. CHECKBOXES, RADIO BUTTONS E INTERRUPTORES */
 [dir] .nx-theme-styles .nx-theme-form :is(.nx-theme-radio-1 input[type="radio"],.nx-theme-checkbox-1 input[type="checkbox"]) {
   accent-color:var(--pk-primary);
@@ -320,6 +326,20 @@
 
 [dir] .nx-theme-styles .nx-theme-form input[type="checkbox"]:checked ~ .nx-checkbox-toggle-container .nx-checkbox-toggle-groove {
   background:var(--pk-primary) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form label:focus-within .nx-checkbox-faux {
+  border-color: var(--pk-primary) !important;
+  box-shadow: 0 0 0 3px var(--pk-primary-soft) !important;
+  outline: none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form input[type="checkbox"]:checked ~ .nx-checkbox-container .nx-checkbox-faux {
+  border-color: var(--pk-primary) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form input[type="checkbox"]:checked ~ .nx-checkbox-container .nx-checkbox-faux svg path {
+  fill: var(--pk-primary) !important;
 }
 
 /*   8. CAMPOS DESHABILITADOS (Modo lectura) */
@@ -431,7 +451,36 @@
   background:var(--pk-primary-soft) !important;
 }
 
-/* 13. ANIMACIONES  */
+/*13. ARCHIVOS ADJUNTOS*/
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1,
+[dir] .nx-theme-styles .nx-theme-form .drop-container {
+  border: none !important; 
+  background: transparent !important; 
+  border-radius: var(--pk-radius) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Añadimos un poco de espacio extra por dentro para que respire */
+[dir] .nx-theme-styles .nx-theme-form .drop-container {
+  padding: 24px !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .drop-container:hover,
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-drop-over-1 .drop-container {
+  background: var(--pk-primary-soft) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+  transform: translateY(-2px); 
+}
+
+/* 3. Ajustar el color del texto */
+[dir] .nx-theme-styles .nx-theme-form .drag-file-label {
+  color: var(--pk-ink) !important;
+  font-weight: 600 !important;
+}
+
+
+/* 14. ANIMACIONES  */
 @keyframes pkIn {
   from {
     opacity:0;
