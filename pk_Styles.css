@@ -411,6 +411,10 @@
 }
 
 /*  11. LISTAS DESPLEGABLES*/
+[dir] .nx-theme-styles .nx-theme-form .nx-group-control-container:has(.ng-select-opened) {
+  z-index: 999999 !important;
+}
+
 .ng-option-marked {
   background:var(--pk-primary-soft) !important;
   color:var(--pk-ink) !important;
@@ -423,24 +427,23 @@
   outline:none !important;
 }
 
-/* ELEVAMOS EL CONTENEDOR PADRE CUANDO SE ABRE EL MENÚ */
+/* ELEVAMOS EL CONTENEDOR PADRE DEL INPUT */
 body .ng-select.ng-select-opened,
 [dir] .nx-theme-styles .nx-theme-form .ng-select.ng-select-opened {
   z-index: 999999 !important;
   position: relative !important;
 }
 
-/* FORZAMOS EL PANEL A ESTAR POR ENCIMA */
+/* PANEL DESPLEGABLE */
 body .ng-dropdown-panel,
 [dir] .nx-theme-styles .nx-theme-form .ng-dropdown-panel {
   position: absolute !important;
   z-index: 999999 !important; 
-  background: var(--pk-white) !important;
+  background: var(--pk-white) !important; 
   border: 1px solid var(--pk-primary) !important;
   border-radius: 4px !important; 
   box-shadow: 0 4px 12px rgba(0,0,0,.1) !important; 
 }
-
 /* 12. CALENDARIO */
 .flatpickr-day {
   color:var(--pk-ink) !important;
