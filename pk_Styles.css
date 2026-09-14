@@ -350,6 +350,13 @@
   box-shadow:none !important;
 }
 
+/* Excepción cambio de fecha editable */
+[dir] .nx-theme-styles .nx-theme-form :not(.nx-read-only) > .input-group > input.form-control[readonly],
+[dir] .nx-theme-styles .nx-theme-form .nx-control-datetime:not(.nx-read-only) input.form-control {
+  background: linear-gradient(180deg, var(--pk-white), #FCFBFA) !important;
+  color: var(--pk-ink) !important;
+}
+
 /*   9. ETIQUETAS DE CAMPO Y ASTERISCO OBLIGATORIO */
 [dir] .nx-theme-styles .nx-theme-form .nx-form-label.nx-break-word {
   color:var(--pk-ink);
