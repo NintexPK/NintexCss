@@ -445,6 +445,15 @@ body .ng-dropdown-panel,
   box-shadow: 0 4px 12px rgba(0,0,0,.1) !important; 
 }
 /* 12. CALENDARIO */
+[dir] .nx-theme-styles .nx-theme-form .nx-group-control-container:has(.flatpickr-calendar.open) {
+  z-index: 999999 !important;
+}
+
+/* Forzar la caja del calendario a estar en la capa superior */
+.flatpickr-calendar {
+  z-index: 999999 !important;
+}
+
 .flatpickr-day {
   color:var(--pk-ink) !important;
 }
