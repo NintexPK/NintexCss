@@ -351,10 +351,17 @@
 }
 
 /* Excepción cambio de fecha editable */
-[dir] .nx-theme-styles .nx-theme-form :not(.nx-read-only) > .input-group > input.form-control[readonly],
-[dir] .nx-theme-styles .nx-theme-form .nx-control-datetime:not(.nx-read-only) input.form-control {
+[dir] .nx-theme-styles .nx-theme-form input.form-control[readonly]:not(:disabled) {
   background: linear-gradient(180deg, var(--pk-white), #FCFBFA) !important;
   color: var(--pk-ink) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only input.form-control,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only input.form-control[readonly],
+[dir] .nx-theme-styles .nx-theme-form input.form-control:disabled {
+  background: var(--pk-disabled-bg) !important;
+  color: var(--pk-disabled-fg) !important;
+  border-color: var(--pk-line-strong) !important;
 }
 
 /*   9. ETIQUETAS DE CAMPO Y ASTERISCO OBLIGATORIO */
