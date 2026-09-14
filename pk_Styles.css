@@ -423,12 +423,22 @@
   outline:none !important;
 }
 
-.ng-dropdown-panel {
-  z-index: 9999 !important;
+/* ELEVAMOS EL CONTENEDOR PADRE CUANDO SE ABRE EL MENÚ */
+body .ng-select.ng-select-opened,
+[dir] .nx-theme-styles .nx-theme-form .ng-select.ng-select-opened {
+  z-index: 999999 !important;
+  position: relative !important;
+}
+
+/* FORZAMOS EL PANEL A ESTAR POR ENCIMA */
+body .ng-dropdown-panel,
+[dir] .nx-theme-styles .nx-theme-form .ng-dropdown-panel {
+  position: absolute !important;
+  z-index: 999999 !important; 
+  background: transparent !important;
   border: 1px solid var(--pk-primary) !important;
   border-radius: 4px !important; 
   box-shadow: 0 4px 12px rgba(0,0,0,.1) !important; 
-  overflow: hidden !important; 
 }
 
 /* 12. CALENDARIO */
