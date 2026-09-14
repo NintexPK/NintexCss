@@ -343,6 +343,12 @@
 }
 
 /*   8. CAMPOS DESHABILITADOS (Modo lectura) */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only input,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only * {
+  cursor: default !important; 
+}
+
 [dir] .nx-theme-styles .nx-theme-form :is(.nx-read-only.form-control,.nx-read-only .form-control,.nx-read-only .ng-select-container,input:disabled,textarea:disabled,input[readonly],textarea[readonly]) {
   background:var(--pk-disabled-bg) !important;
   color:var(--pk-disabled-fg) !important;
@@ -488,6 +494,17 @@ body .ng-dropdown-panel,
 
 
 /* --- 13. ADJUNTOS --- */
+/* Adjuntos en modo lectura*/
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .drop-container:hover {
+  background: rgba(255, 255, 255, 0.7) !important; 
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important; 
+}
+
+/* Quitamos la manita de toda la caja de adjuntos y del botón "Select files" */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .drop-container,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .drop-container * {
+  cursor: default !important;
+}
 
 /* 1. Limpiar el contenedor padre */
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
