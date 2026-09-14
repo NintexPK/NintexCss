@@ -435,7 +435,7 @@ body .ng-dropdown-panel,
 [dir] .nx-theme-styles .nx-theme-form .ng-dropdown-panel {
   position: absolute !important;
   z-index: 999999 !important; 
-  background: transparent !important;
+  background: var(--pk-white) !important;
   border: 1px solid var(--pk-primary) !important;
   border-radius: 4px !important; 
   box-shadow: 0 4px 12px rgba(0,0,0,.1) !important; 
