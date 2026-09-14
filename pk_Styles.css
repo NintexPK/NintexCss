@@ -502,6 +502,7 @@ body .ng-dropdown-panel,
 [dir] .nx-theme-styles .nx-theme-form .drag-file-label {
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
+  background: transparent !important;
 }
 
 /* --- 7. ESTILOS DE LOS ARCHIVOS SUBIDOS --- */
