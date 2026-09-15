@@ -500,12 +500,20 @@ body .ng-dropdown-panel,
   background: rgba(255, 255, 255, 0.7) !important; 
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important; 
   cursor: default !important;
+  padding: 10px !important; 
+  min-height: 50px !important; 
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* 2. Escondemos la barra original */
+/* Escondemos la barra original y ajustamos su contenedor */
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only .nx-upload-action-bar {
   visibility: hidden !important; 
   position: relative !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Inyectamos el texto "No files"*/
@@ -515,6 +523,8 @@ body .ng-dropdown-panel,
   position: absolute !important;
   left: 0;
   right: 0;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
   text-align: center;
   font-size: 14px;
   font-weight: 600;
