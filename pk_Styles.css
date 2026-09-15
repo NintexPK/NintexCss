@@ -592,6 +592,20 @@ body .ng-dropdown-panel,
   background-color: transparent !important;
 }
 
+/* Ocultar el botón y el texto de arrastrar cuando está bloqueado pero ya tiene un documento */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:has(.nx-upload-item) .nx-upload-action-bar,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:has(.nx-upload-item) .drag-file-label {
+  display: none !important;
+}
+
+/* Limpiar la caja contenedora para que quede totalmente invisible y solo se vea el documento */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:has(.nx-upload-item) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
 /*  14. POP-OVER DE CONFIRMACIÓN (Eliminar archivo)  */
 
 /* Elevar la caja del archivo para que el menú no se esconda detrás de otros campos */
