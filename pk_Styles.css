@@ -559,34 +559,35 @@ body .ng-dropdown-panel,
 }
 /* ESTILOS DE LOS ARCHIVOS SUBIDOS  */
 
-/* Letras */
-[dir] .nx-theme-styles .nx-theme-form .nx-upload-item a,
-[dir] .nx-theme-styles .nx-theme-form .nx-upload-item a * {
+/*Caja del archivo */
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item .upload-item-top {
+  border: 1px solid var(--pk-primary) !important;
+  border-radius: var(--pk-radius) !important;
+  background: var(--pk-disabled-bg) !important; /* Añadimos el fondo gris claro */
+}
+
+/* Textos (Nombre del archivo y tamaño) */
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item .nx-upload-file * {
   color: var(--pk-ink) !important;
   text-decoration: none !important;
 }
 
-[dir] .nx-theme-styles .nx-theme-form .nx-upload-item .upload-item-top {
-  border: 1px solid var(--pk-primary) !important;
-  border-radius: var(--pk-radius) !important; 
+/* Icono del documento (PDF/Excel) en rojo */
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item ntx-icon svg,
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item ntx-icon svg * {
+  fill: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
+  stroke: none !important; 
 }
 
-/* Icono Documento (PDF) */
-[dir] .nx-theme-styles .nx-theme-form .nx-upload-item a svg * {
-  fill: #ffffff !important; 
-  stroke: var(--pk-primary) !important;
-  stroke-width: 1.2px !important; 
-  color: #ffffff !important; 
-}
-/* Icono Papelera*/
+/* Icono de la Papelera en rojo (Mantenemos tu código que funcionaba bien) */
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item button,
-[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button ntx-icon,
-[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button mat-icon,
-[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button svg {
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button * {
   color: var(--pk-primary) !important;
   fill: var(--pk-primary) !important;
 }
 
+/* Quitamos el fondo al pasar el ratón por la papelera */
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item button:hover {
   background-color: transparent !important;
 }
