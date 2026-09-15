@@ -503,7 +503,7 @@ body .ng-dropdown-panel,
 }
 
 /* Caja interior de cristal (Normal) */
-[dir] .nx-theme-styles .nx-theme-form .nx-form-control:not(.nx-read-only) .drop-container {
+[dir] .nx-theme-styles .nx-theme-form .drop-container {
   border: none !important; 
   background: rgba(255, 255, 255, 0.7) !important;
   border-radius: var(--pk-radius) !important;
@@ -511,34 +511,32 @@ body .ng-dropdown-panel,
   padding: 24px !important;
   transition: all 0.3s ease !important;
   display: block !important; 
-  height: auto !important;
 }
 
 /* Hacer transparente la barra interior que envuelve texto y botón */
-[dir] .nx-theme-styles .nx-theme-form .nx-form-control:not(.nx-read-only) .drop-container .nx-upload-action-bar {
+[dir] .nx-theme-styles .nx-theme-form .drop-container .nx-upload-action-bar {
   background: transparent !important;
   display: flex !important; 
   visibility: visible !important;
 }
 
 /* Ajustar el color del texto de arrastrar */
-[dir] .nx-theme-styles .nx-theme-form .nx-form-control:not(.nx-read-only) .drag-file-label {
+[dir] .nx-theme-styles .nx-theme-form .drag-file-label {
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
   background: transparent !important;
-  display: inline-block !important; 
 }
 
 /* Iluminar la caja normal al pasar el ratón o arrastrar */
-[dir] .nx-theme-styles .nx-theme-form .nx-form-control:not(.nx-read-only) .drop-container:hover,
+[dir] .nx-theme-styles .nx-theme-form .drop-container:hover,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-drop-over-1 .drop-container {
   background: var(--pk-primary-soft) !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
 }
 
 /* Caja vacía: pequeña, gris, con bordes y SIN hover absoluto */
-[dir] .nx-theme-styles .nx-theme-form .nx-form-control.nx-read-only .drop-container:not(:has(.nx-upload-item)),
-[dir] .nx-theme-styles .nx-theme-form .nx-form-control.nx-read-only .drop-container:not(:has(.nx-upload-item)):hover {
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .drop-container:not(:has(.nx-upload-item)),
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .drop-container:not(:has(.nx-upload-item)):hover {
   background: var(--pk-disabled-bg) !important; 
   border: 1px solid var(--pk-line-strong) !important;
   border-radius: var(--pk-radius) !important; 
@@ -553,13 +551,13 @@ body .ng-dropdown-panel,
   justify-content: center !important;
 }
 
-/* Destruimos cualquier elemento interno original de Nintex para que no estorbe */
-[dir] .nx-theme-styles .nx-theme-form .nx-form-control.nx-read-only .drop-container:not(:has(.nx-upload-item)) * {
+/* Destruimos cualquier elemento interno original de Nintex para evitar duplicados */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .drop-container:not(:has(.nx-upload-item)) * {
   display: none !important;
 }
 
-/* Inyectamos el texto "No files attached" directamente */
-[dir] .nx-theme-styles .nx-theme-form .nx-form-control.nx-read-only .drop-container:not(:has(.nx-upload-item))::after {
+/* Inyectamos el texto "No files attached" directamente en el centro */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .drop-container:not(:has(.nx-upload-item))::after {
   content: "No files attached";
   display: block !important;
   font-size: 14px;
