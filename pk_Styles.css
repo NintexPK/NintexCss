@@ -494,7 +494,8 @@ body .ng-dropdown-panel,
 
 
 /* --- 13. ADJUNTOS --- */
-/* Limpiar el contenedor padre general */
+/* RESET GENERAL DE CONTENEDORES PADRE */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
   border: none !important;
   background: transparent !important;
@@ -502,66 +503,59 @@ body .ng-dropdown-panel,
   padding: 0 !important;
 }
 
-/* Caja interior (Aplica por defecto a todas) */
-[dir] .nx-theme-styles .nx-theme-form .drop-container {
+
+/* Se aplica siempre que el contenedor padre NO tenga .nx-read-only */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container {
   border: none !important;
   background: rgba(255, 255, 255, 0.7) !important;
   border-radius: var(--pk-radius) !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
   padding: 24px !important;
   transition: all 0.3s ease !important;
-  display: block !important;
-  height: auto !important;
 }
 
-/* Hacer transparente la barra interior que envuelve texto y botón */
-[dir] .nx-theme-styles .nx-theme-form .drop-container .nx-upload-action-bar {
+/* Transparencias para los textos y fondos internos de Nintex */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-action-bar,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drag-file-label {
   background: transparent !important;
-}
-
-/* Ajustar el color del texto de arrastrar */
-[dir] .nx-theme-styles .nx-theme-form .drag-file-label {
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
-  background: transparent !important;
 }
 
-/* Iluminar la caja al interactuar (SOLO si detecta que hay un botón dentro) */
-[dir] .nx-theme-styles .nx-theme-form .drop-container:has(button):hover,
+/* Efecto Hover solo si NO está en modo lectura */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-drop-over-1 .drop-container {
   background: var(--pk-primary-soft) !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
 }
 
-/* Caja vacía: pequeña, gris, con bordes y SIN hover */
-[dir] .nx-theme-styles .nx-theme-form .drop-container:not(:has(.nx-upload-item)):not(:has(button)) {
+
+/* Se aplica SOLO cuando el contenedor padre tiene .nx-read-only Y no hay archivos subidos */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:not(:has(.nx-upload-item)) {
   background: var(--pk-disabled-bg) !important;
   border: 1px solid var(--pk-line-strong) !important;
   border-radius: var(--pk-radius) !important;
   box-shadow: none !important;
-  transform: none !important;
-  cursor: default !important;
   height: 60px !important;
   min-height: 60px !important;
   padding: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  cursor: default !important;
 }
 
-/* Destruimos el interior original para evitar duplicados en lectura */
-[dir] .nx-theme-styles .nx-theme-form .drop-container:not(:has(.nx-upload-item)):not(:has(button)) * {
+/* OCULTAR ELEMENTOS INTERNOS EN LECTURA */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:not(:has(.nx-upload-item)) .nx-upload-action-bar {
   display: none !important;
 }
 
-/* Inyectamos nuestro texto limpio y centrado */
-[dir] .nx-theme-styles .nx-theme-form .drop-container:not(:has(.nx-upload-item)):not(:has(button))::after {
+/*  texto limpio */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:not(:has(.nx-upload-item))::after {
   content: "No files attached";
-  display: block !important;
   font-size: 14px;
   font-weight: 600;
   color: var(--pk-disabled-fg) !important;
-  cursor: default !important;
 }
 /* ESTILOS DE LOS ARCHIVOS SUBIDOS  */
 
