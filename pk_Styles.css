@@ -342,8 +342,8 @@
   fill: var(--pk-primary) !important;
 }
 
-/*   8. CAMPOS DESHABILITADOS (Modo lectura) */
-/* Cursor por defecto */
+/* 8. Campos deshabilitados*/
+/* Cursor por defecto para todo lo bloqueado */
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only,
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only input,
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only * {
@@ -362,7 +362,7 @@
   border-radius: var(--pk-radius) !important;
 }
 
-/* 1. EL MARCO EXTERIOR PERFECTO (Aplica a cajas de texto y a la envoltura de los desplegables) */
+/* CAJAS DE TEXTO NORMALES  */
 [dir] .nx-theme-styles .nx-theme-form :is(.nx-read-only.form-control, .nx-read-only .form-control, input:disabled, textarea:disabled, input[readonly], textarea[readonly]) {
   background: var(--pk-disabled-bg) !important;
   color: var(--pk-disabled-fg) !important;
@@ -371,18 +371,28 @@
   box-shadow: none !important;
 }
 
-/* 2. MATAR LAS "PASTILLAS" INTERNAS (El doble marco) */
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container,
+/*  DESPLEGABLES: CAJA PRINCIPAL (Le damos el mismo marco exterior ancho) */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container {
+  background: var(--pk-disabled-bg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: none !important;
+}
+
+/* DESPLEGABLES: MATAR LA PASTILLA INTERNA REBELDE (Para quitar el encogimiento) */
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-value-container,
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-value {
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-value,
+[dir] .nx-theme-styles .nx-theme-form .ng-select.ng-select-disabled .ng-value {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Color correcto del texto dentro del desplegable */
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-value * {
+/* Color correcto del texto dentro del desplegable bloqueado */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-value *,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-value .ng-value-label {
   color: var(--pk-disabled-fg) !important;
 }
 
@@ -398,6 +408,7 @@
   color: var(--pk-disabled-fg) !important;
   border: 1px solid var(--pk-line-strong) !important;
 }
+
 /*   9. ETIQUETAS DE CAMPO Y ASTERISCO OBLIGATORIO */
 [dir] .nx-theme-styles .nx-theme-form .nx-form-label.nx-break-word {
   color:var(--pk-ink);
