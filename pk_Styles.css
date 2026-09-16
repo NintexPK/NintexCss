@@ -343,28 +343,52 @@
 }
 
 /*   8. CAMPOS DESHABILITADOS (Modo lectura) */
+/* Cursor por defecto */
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only,
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only input,
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only * {
   cursor: default !important; 
 }
 
-/* Ocultar iconos (fecha/persona) en modo lectura */
+/* Ocultar iconos (fecha/persona) en modo lectura para que no queden huecos */
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only .nx-btn-input-icon,
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only .input-group-append {
   display: none !important;
 }
 
+/* Devolver borde derecho a los campos de fecha/persona que se quedaban cortados */
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only .input-group .form-control.nx-theme-input-1 {
   border-right: 1px solid var(--pk-line-strong) !important;
   border-radius: var(--pk-radius) !important;
 }
 
-[dir] .nx-theme-styles .nx-theme-form :is(.nx-read-only.form-control,.nx-read-only .form-control,.nx-read-only .ng-select-container,input:disabled,textarea:disabled,input[readonly],textarea[readonly]) {
+/* 1. INPUTS NORMALES Y ÁREAS DE TEXTO */
+[dir] .nx-theme-styles .nx-theme-form input.nx-read-only,
+[dir] .nx-theme-styles .nx-theme-form textarea.nx-read-only,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only.form-control,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .form-control,
+[dir] .nx-theme-styles .nx-theme-form input:disabled,
+[dir] .nx-theme-styles .nx-theme-form textarea:disabled {
   background: var(--pk-disabled-bg) !important;
   color: var(--pk-disabled-fg) !important;
-  border: 1px solid var(--pk-line-strong) !important; 
-  border-radius: var(--pk-radius) !important; 
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-ng-select-1.nx-read-only,
+[dir] .nx-theme-styles .nx-theme-form .ng-select.nx-read-only {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container {
+  background: var(--pk-disabled-bg) !important;
+  color: var(--pk-disabled-fg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
   box-shadow: none !important;
 }
 
@@ -374,11 +398,11 @@
   color: var(--pk-ink) !important;
 }
 
-/* Excepción fecha en modo lectura  */
+/* Excepción fecha en modo lectura */
 [dir] .nx-theme-styles .nx-theme-form input.flatpickr-input.nx-read-only {
   background: var(--pk-disabled-bg) !important;
   color: var(--pk-disabled-fg) !important;
-  border: 1px solid var(--pk-line-strong) !important; 
+  border: 1px solid var(--pk-line-strong) !important;
 }
 
 /*   9. ETIQUETAS DE CAMPO Y ASTERISCO OBLIGATORIO */
