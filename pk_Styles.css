@@ -349,6 +349,16 @@
   cursor: default !important; 
 }
 
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .nx-btn-input-icon,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .input-group-append {
+  display: none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .input-group .form-control.nx-theme-input-1 {
+  border-right: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+}
+
 [dir] .nx-theme-styles .nx-theme-form :is(.nx-read-only.form-control,.nx-read-only .form-control,.nx-read-only .ng-select-container,input:disabled,textarea:disabled,input[readonly],textarea[readonly]) {
   background:var(--pk-disabled-bg) !important;
   color:var(--pk-disabled-fg) !important;
