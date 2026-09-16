@@ -350,7 +350,7 @@
   cursor: default !important; 
 }
 
-/* Ocultar iconos (fecha/persona) en modo lectura para que no queden huecos */
+/* Ocultar iconos (fecha/persona) en modo lectura */
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only .nx-btn-input-icon,
 [dir] .nx-theme-styles .nx-theme-form .nx-read-only .input-group-append {
   display: none !important;
@@ -362,13 +362,8 @@
   border-radius: var(--pk-radius) !important;
 }
 
-/* 1. INPUTS NORMALES Y ÁREAS DE TEXTO */
-[dir] .nx-theme-styles .nx-theme-form input.nx-read-only,
-[dir] .nx-theme-styles .nx-theme-form textarea.nx-read-only,
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only.form-control,
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only .form-control,
-[dir] .nx-theme-styles .nx-theme-form input:disabled,
-[dir] .nx-theme-styles .nx-theme-form textarea:disabled {
+/* 1. EL MARCO EXTERIOR PERFECTO (Aplica a cajas de texto y a la envoltura de los desplegables) */
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-read-only.form-control, .nx-read-only .form-control, input:disabled, textarea:disabled, input[readonly], textarea[readonly]) {
   background: var(--pk-disabled-bg) !important;
   color: var(--pk-disabled-fg) !important;
   border: 1px solid var(--pk-line-strong) !important;
@@ -376,20 +371,19 @@
   box-shadow: none !important;
 }
 
-[dir] .nx-theme-styles .nx-theme-form .nx-theme-ng-select-1.nx-read-only,
-[dir] .nx-theme-styles .nx-theme-form .ng-select.nx-read-only {
-  border: none !important;
+/* 2. MATAR LAS "PASTILLAS" INTERNAS (El doble marco) */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-value-container,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-value {
   background: transparent !important;
+  border: none !important;
   box-shadow: none !important;
-  padding: 0 !important;
+  margin: 0 !important;
 }
 
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container {
-  background: var(--pk-disabled-bg) !important;
+/* Color correcto del texto dentro del desplegable */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-value * {
   color: var(--pk-disabled-fg) !important;
-  border: 1px solid var(--pk-line-strong) !important;
-  border-radius: var(--pk-radius) !important;
-  box-shadow: none !important;
 }
 
 /* Excepción cambio de fecha editable */
@@ -404,7 +398,6 @@
   color: var(--pk-disabled-fg) !important;
   border: 1px solid var(--pk-line-strong) !important;
 }
-
 /*   9. ETIQUETAS DE CAMPO Y ASTERISCO OBLIGATORIO */
 [dir] .nx-theme-styles .nx-theme-form .nx-form-label.nx-break-word {
   color:var(--pk-ink);
@@ -718,10 +711,3 @@ body .ng-dropdown-panel,
   animation:pkIn .5s ease-out;
 }
 
-/* 16. MARCOS DESPLEGABLES */
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container,
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container.ng-has-value {
-  border: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
