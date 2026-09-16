@@ -719,19 +719,9 @@ body .ng-dropdown-panel,
 }
 
 /* 16. MARCOS DESPLEGABLES */
-
-/* 1. Quitamos el borde y el fondo a cualquier caja exterior que envuelva al desplegable */
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only:has(.ng-select-container),
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only:has(ng-select) {
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container.ng-has-value {
   border: none !important;
   background: transparent !important;
-  box-shadow: none !important;
-}
-
-/* 2. Le devolvemos el borde y el fondo SOLAMENTE a la capa más profunda y correcta */
-[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container {
-  border: 1px solid var(--pk-line-strong) !important;
-  background: var(--pk-disabled-bg) !important;
-  border-radius: var(--pk-radius) !important;
   box-shadow: none !important;
 }
