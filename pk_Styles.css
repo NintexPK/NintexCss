@@ -551,7 +551,7 @@ body .ng-dropdown-panel,
   padding: 0 !important;
 }
 
-/* CAJA BASE EDITABLE */
+/* 1. CAJA BASE EDITABLE */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container {
   border: none !important;
   background: rgba(255, 255, 255, 0.7) !important;
@@ -561,17 +561,18 @@ body .ng-dropdown-panel,
   transition: all 0.3s ease !important;
 }
 
-/*  TEXTOS INTERNOS BASE (Fijamos el tamaño para que Nintex no los agrande solos) */
+/* 2. TEXTOS INTERNOS BASE (Congelamos el tamaño y los preparamos para la animación) */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-action-bar,
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drag-file-label {
   background: transparent !important;
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
-  font-size: 20px !important;
-  transition: color 0.2s ease !important;
+  font-size: 15px !important; 
+  transition: all 0.3s ease !important;
+  display: inline-block !important; 
 }
 
-/* HOVER (Ratón) Y DRAG-OVER (Arrastrar archivo) */
+/* 3. HOVER Y DRAG-OVER: EFECTO EN EL FONDO (Caja rosa) */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover,
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-theme-file-upload-drop-over-1 .drop-container,
 [dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over,
@@ -580,12 +581,14 @@ body .ng-dropdown-panel,
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
 }
 
-/* CAMBIO DE COLOR DEL TEXTO AL INTERACTUAR */
+/* 4. HOVER Y DRAG-OVER: EFECTO EN EL TEXTO (Color rojo y levantar letras) */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover .drag-file-label,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover .nx-upload-action-bar,
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-theme-file-upload-drop-over-1 .drag-file-label,
 [dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .drag-file-label,
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:has(.nx-drag-over) .drag-file-label {
   color: var(--pk-primary-dark) !important;
+  transform: translateY(-3px) !important; 
 }
 
 /* Se aplica SOLO cuando el contenedor padre tiene .nx-read-only Y no hay archivos subidos */
