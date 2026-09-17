@@ -562,12 +562,10 @@ body .ng-dropdown-panel,
 }
 
 /* 2. TEXTOS INTERNOS Y ELIMINAR DUPLICADOS */
-/* Ocultamos el texto fantasma "No files uploaded" nativo de Nintex */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-file-list:not(:has(.nx-upload-item)) {
   display: none !important;
 }
 
-/* Bloqueamos el tamaño de fuente a 15px para CUALQUIER texto que Nintex genere ahí dentro */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container * {
   font-size: 15px !important;
 }
@@ -588,11 +586,12 @@ body .ng-dropdown-panel,
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
 }
 
-/* 4. HOVER Y DRAG-OVER: EFECTO EN EL TEXTO (Color rojo y levantar letras) */
-/* Atacamos directamente a los 'span' para que Nintex no pueda sobrescribir la animación */
-[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover span,
-[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over span,
-[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:has(.nx-drag-over) .drop-container span {
+/* 4. HOVER Y DRAG-OVER: EFECTO EN EL TEXTO */
+/* ¡CORREGIDO! Solo afectamos al texto vacío, sin tocar los botones del pop-over */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover .drag-file-label,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover .nx-upload-action-bar,
+[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .drag-file-label,
+[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .nx-upload-action-bar {
   color: var(--pk-primary-dark) !important;
   display: inline-block !important; 
   transform: translateY(-2px) !important; 
@@ -618,29 +617,26 @@ body .ng-dropdown-panel,
   display: none !important;
 }
 
-/*  texto limpio */
+/* texto limpio */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:not(:has(.nx-upload-item))::after {
   content: "No files attached";
   font-size: 14px;
   font-weight: 600;
   color: var(--pk-disabled-fg) !important;
 }
-/* ESTILOS DE LOS ARCHIVOS SUBIDOS  */
 
-/*Caja del archivo */
+/* ESTILOS DE LOS ARCHIVOS SUBIDOS */
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item .upload-item-top {
   border: 1px solid var(--pk-primary) !important;
   border-radius: var(--pk-radius) !important;
-  background: var(--pk-disabled-bg) !important; /* Añadimos el fondo gris claro */
+  background: var(--pk-disabled-bg) !important;
 }
 
-/* Textos (Nombre del archivo y tamaño) */
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item .nx-upload-file * {
   color: var(--pk-ink) !important;
   text-decoration: none !important;
 }
 
-/* Icono del documento (PDF/Excel) en rojo */
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item ntx-icon svg,
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item ntx-icon svg * {
   fill: var(--pk-primary) !important;
@@ -648,25 +644,21 @@ body .ng-dropdown-panel,
   stroke: none !important; 
 }
 
-/* Icono de la Papelera en rojo (Mantenemos tu código que funcionaba bien) */
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item button,
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item button * {
   color: var(--pk-primary) !important;
   fill: var(--pk-primary) !important;
 }
 
-/* Quitamos el fondo al pasar el ratón por la papelera */
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item button:hover {
   background-color: transparent !important;
 }
 
-/* Ocultar el botón y el texto de arrastrar cuando está bloqueado pero ya tiene un documento */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:has(.nx-upload-item) .nx-upload-action-bar,
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:has(.nx-upload-item) .drag-file-label {
   display: none !important;
 }
 
-/* Limpiar la caja contenedora para que quede totalmente invisible y solo se vea el documento */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:has(.nx-upload-item) {
   background: transparent !important;
   border: none !important;
@@ -674,68 +666,78 @@ body .ng-dropdown-panel,
   padding: 0 !important;
 }
 
-/*  14. POP-OVER DE CONFIRMACIÓN (Eliminar archivo)  */
+
+/* ========================================================= */
+/* --- 14. POP-OVER DE CONFIRMACIÓN (Eliminar archivo) ---   */
+/* ========================================================= */
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item {
   position: relative !important;
   z-index: 9999 !important;
 }
 
-/* ELIMINAMOS LA DOBLE CAJA INTERNA */
-body .nx-action-menu-list {
+/* CAZAMOS EL MENÚ ESTÉ DONDE ESTÉ (En el body o dentro del form) */
+body .nx-action-menu-list,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   padding: 4px !important;
 }
 
-/* Color del texto "¿Remove file?" */
-body .nx-action-menu-list .nx-action-message {
+body .nx-action-menu-list .nx-action-message,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list .nx-action-message {
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
   margin-bottom: 12px !important;
 }
 
-/* Botones del Pop-over (Estructura base) */
-body .nx-action-menu-list button {
+body .nx-action-menu-list button,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list button {
   border-radius: var(--pk-radius) !important;
   font-weight: 700 !important;
   padding: 8px 16px !important;
   transition: all .2s ease !important;
 }
 
-/* Botón Cancelar (Fondo y Texto interior) */
+/* --- Botón Cancelar --- */
 body .nx-action-menu-list [data-e2e="prompt-cancel-button"],
-body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:focus {
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"] {
   background: linear-gradient(180deg, var(--pk-white), #FBF9F8) !important;
   border: 1px solid var(--pk-line-strong) !important;
   box-shadow: 0 1px 2px rgba(32, 26, 25, 0.04) !important;
   outline: none !important;
 }
-body .nx-action-menu-list [data-e2e="prompt-cancel-button"] * {
-  color: var(--pk-muted) !important; /* Forzamos color gris al texto */
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"] *,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"] * {
+  color: var(--pk-muted) !important;
 }
 
-body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover {
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover {
   border-color: var(--pk-primary) !important;
   background: var(--pk-primary-soft) !important;
 }
-body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover * {
-  color: var(--pk-primary-dark) !important; /* Texto rojo oscuro al pasar el ratón */
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover *,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover * {
+  color: var(--pk-primary-dark) !important;
 }
 
-/* Botón Eliminar (Fondo y Texto interior) */
+/* --- Botón Eliminar (Forzamos color blanco) --- */
 body .nx-action-menu-list [data-e2e="prompt-confirm-button"],
-body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:focus {
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"] {
   background: var(--pk-grad-hero) !important;
   border: none !important;
   box-shadow: 0 4px 8px rgba(178,10,16,.15) !important;
   outline: none !important;
 }
-body .nx-action-menu-list [data-e2e="prompt-confirm-button"] * {
-  color: var(--pk-white) !important; /* Forzamos color blanco al texto */
+/* Ignoramos los hover anteriores y forzamos blanco a las letras */
+body .nx-action-menu-list [data-e2e="prompt-confirm-button"] *,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"] * {
+  color: var(--pk-white) !important;
 }
 
-body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover {
+body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover {
   background: var(--pk-grad-hero) !important; 
   box-shadow: 0 6px 14px rgba(178,10,16,.3) !important;
   transform: translateY(-2px) !important; 
