@@ -561,20 +561,27 @@ body .ng-dropdown-panel,
   transition: all 0.3s ease !important;
 }
 
-/* 2. TEXTOS INTERNOS BASE (Congelamos el tamaño y los preparamos para la animación) */
+/* 2. TEXTOS INTERNOS Y ELIMINAR DUPLICADOS */
+/* Ocultamos el texto fantasma "No files uploaded" nativo de Nintex */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-file-list:not(:has(.nx-upload-item)) {
+  display: none !important;
+}
+
+/* Bloqueamos el tamaño de fuente a 15px para CUALQUIER texto que Nintex genere ahí dentro */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container * {
+  font-size: 15px !important;
+}
+
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-action-bar,
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drag-file-label {
   background: transparent !important;
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
-  font-size: 15px !important; 
   transition: all 0.3s ease !important;
-  display: inline-block !important; 
 }
 
 /* 3. HOVER Y DRAG-OVER: EFECTO EN EL FONDO (Caja rosa) */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover,
-[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-theme-file-upload-drop-over-1 .drop-container,
 [dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over,
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:has(.nx-drag-over) .drop-container {
   background: var(--pk-primary-soft) !important;
@@ -582,13 +589,13 @@ body .ng-dropdown-panel,
 }
 
 /* 4. HOVER Y DRAG-OVER: EFECTO EN EL TEXTO (Color rojo y levantar letras) */
-[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover .drag-file-label,
-[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover .nx-upload-action-bar,
-[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-theme-file-upload-drop-over-1 .drag-file-label,
-[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .drag-file-label,
-[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:has(.nx-drag-over) .drag-file-label {
+/* Atacamos directamente a los 'span' para que Nintex no pueda sobrescribir la animación */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover span,
+[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over span,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:has(.nx-drag-over) .drop-container span {
   color: var(--pk-primary-dark) !important;
-  transform: translateY(-3px) !important; 
+  display: inline-block !important; 
+  transform: translateY(-2px) !important; 
 }
 
 /* Se aplica SOLO cuando el contenedor padre tiene .nx-read-only Y no hay archivos subidos */
@@ -688,7 +695,7 @@ body .nx-action-menu-list .nx-action-message {
   margin-bottom: 12px !important;
 }
 
-/* Botones del Pop-over */
+/* Botones del Pop-over (Estructura base) */
 body .nx-action-menu-list button {
   border-radius: var(--pk-radius) !important;
   font-weight: 700 !important;
@@ -696,33 +703,40 @@ body .nx-action-menu-list button {
   transition: all .2s ease !important;
 }
 
-/* Botón Cancelar */
+/* Botón Cancelar (Fondo y Texto interior) */
 body .nx-action-menu-list [data-e2e="prompt-cancel-button"],
 body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:focus {
   background: linear-gradient(180deg, var(--pk-white), #FBF9F8) !important;
-  color: var(--pk-muted) !important;
   border: 1px solid var(--pk-line-strong) !important;
   box-shadow: 0 1px 2px rgba(32, 26, 25, 0.04) !important;
   outline: none !important;
 }
-body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover {
-  border-color: var(--pk-primary) !important;
-  color: var(--pk-primary-dark) !important;
-  background: var(--pk-primary-soft) !important;
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"] * {
+  color: var(--pk-muted) !important; /* Forzamos color gris al texto */
 }
 
-/* Botón Eliminar */
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover {
+  border-color: var(--pk-primary) !important;
+  background: var(--pk-primary-soft) !important;
+}
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover * {
+  color: var(--pk-primary-dark) !important; /* Texto rojo oscuro al pasar el ratón */
+}
+
+/* Botón Eliminar (Fondo y Texto interior) */
 body .nx-action-menu-list [data-e2e="prompt-confirm-button"],
 body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:focus {
   background: var(--pk-grad-hero) !important;
-  color: var(--pk-white) !important;
   border: none !important;
   box-shadow: 0 4px 8px rgba(178,10,16,.15) !important;
   outline: none !important;
 }
+body .nx-action-menu-list [data-e2e="prompt-confirm-button"] * {
+  color: var(--pk-white) !important; /* Forzamos color blanco al texto */
+}
+
 body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover {
   background: var(--pk-grad-hero) !important; 
-  color: var(--pk-white) !important;
   box-shadow: 0 6px 14px rgba(178,10,16,.3) !important;
   transform: translateY(-2px) !important; 
 }
