@@ -543,7 +543,6 @@ body .ng-dropdown-panel,
 
 
 /* --- 13. ADJUNTOS --- */
-/* RESET GENERAL DE CONTENEDORES PADRE */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
   border: none !important;
@@ -552,8 +551,7 @@ body .ng-dropdown-panel,
   padding: 0 !important;
 }
 
-
-/* Se aplica siempre que el contenedor padre NO tenga .nx-read-only */
+/* CAJA BASE EDITABLE */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container {
   border: none !important;
   background: rgba(255, 255, 255, 0.7) !important;
@@ -563,21 +561,32 @@ body .ng-dropdown-panel,
   transition: all 0.3s ease !important;
 }
 
-/* Transparencias para los textos y fondos internos de Nintex */
+/*  TEXTOS INTERNOS BASE (Fijamos el tamaño para que Nintex no los agrande solos) */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-action-bar,
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drag-file-label {
   background: transparent !important;
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
+  font-size: 15px !important;
+  transition: color 0.2s ease !important;
 }
 
-/* Efecto Hover solo si NO está en modo lectura */
+/* HOVER (Ratón) Y DRAG-OVER (Arrastrar archivo) */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover,
-[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-drop-over-1 .drop-container {
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-theme-file-upload-drop-over-1 .drop-container,
+[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:has(.nx-drag-over) .drop-container {
   background: var(--pk-primary-soft) !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
 }
 
+/* CAMBIO DE COLOR DEL TEXTO AL INTERACTUAR */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover .drag-file-label,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-theme-file-upload-drop-over-1 .drag-file-label,
+[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .drag-file-label,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:has(.nx-drag-over) .drag-file-label {
+  color: var(--pk-primary-dark) !important;
+}
 
 /* Se aplica SOLO cuando el contenedor padre tiene .nx-read-only Y no hay archivos subidos */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:not(:has(.nx-upload-item)) {
