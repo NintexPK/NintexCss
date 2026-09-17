@@ -567,7 +567,7 @@ body .ng-dropdown-panel,
   background: transparent !important;
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
-  font-size: 15px !important;
+  font-size: 20px !important;
   transition: color 0.2s ease !important;
 }
 
@@ -665,15 +665,13 @@ body .ng-dropdown-panel,
 }
 
 /*  14. POP-OVER DE CONFIRMACIÓN (Eliminar archivo)  */
-
-/* Elevar la caja del archivo para que el menú no se esconda detrás de otros campos */
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item {
   position: relative !important;
   z-index: 9999 !important;
 }
 
-/* ELIMINAMOS LA DOBLE CAJA*/
-[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list {
+/* ELIMINAMOS LA DOBLE CAJA INTERNA */
+body .nx-action-menu-list {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
@@ -681,14 +679,14 @@ body .ng-dropdown-panel,
 }
 
 /* Color del texto "¿Remove file?" */
-[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list .nx-action-message {
+body .nx-action-menu-list .nx-action-message {
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
   margin-bottom: 12px !important;
 }
 
 /* Botones del Pop-over */
-[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list button {
+body .nx-action-menu-list button {
   border-radius: var(--pk-radius) !important;
   font-weight: 700 !important;
   padding: 8px 16px !important;
@@ -696,36 +694,35 @@ body .ng-dropdown-panel,
 }
 
 /* Botón Cancelar */
-[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"],
-[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"]:focus {
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"],
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:focus {
   background: linear-gradient(180deg, var(--pk-white), #FBF9F8) !important;
   color: var(--pk-muted) !important;
   border: 1px solid var(--pk-line-strong) !important;
   box-shadow: 0 1px 2px rgba(32, 26, 25, 0.04) !important;
-  outline: none !important; /* Matamos el borde de selección nativo */
+  outline: none !important;
 }
-[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover {
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover {
   border-color: var(--pk-primary) !important;
   color: var(--pk-primary-dark) !important;
   background: var(--pk-primary-soft) !important;
 }
 
-/* Botón Eliminar  */
-[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"],
-[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"]:focus {
+/* Botón Eliminar */
+body .nx-action-menu-list [data-e2e="prompt-confirm-button"],
+body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:focus {
   background: var(--pk-grad-hero) !important;
   color: var(--pk-white) !important;
   border: none !important;
   box-shadow: 0 4px 8px rgba(178,10,16,.15) !important;
   outline: none !important;
 }
-[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover {
+body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover {
   background: var(--pk-grad-hero) !important; 
   color: var(--pk-white) !important;
   box-shadow: 0 6px 14px rgba(178,10,16,.3) !important;
   transform: translateY(-2px) !important; 
 }
-
 
 /* 15. ANIMACIONES  */
 @keyframes pkIn {
