@@ -570,12 +570,17 @@ body .ng-dropdown-panel,
   font-size: 15px !important;
 }
 
-[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-action-bar,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-action-bar:not(.d-print-inline-flex),
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drag-file-label {
   background: transparent !important;
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
   transition: all 0.3s ease !important;
+}
+
+/* Blindaje: la copia de impresión nunca debe mostrarse en pantalla*/
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-action-bar.d-print-inline-flex {
+  display: none !important;
 }
 
 /* 3. HOVER Y DRAG-OVER: EFECTO EN EL FONDO (Caja rosa) */
@@ -588,9 +593,9 @@ body .ng-dropdown-panel,
 
 /* 4. HOVER Y DRAG-OVER: EFECTO EN EL TEXTO */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover:not(:has(.nx-upload-item:hover)):not(:has(.nx-action-menu-list:hover)) .drag-file-label,
-[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover:not(:has(.nx-upload-item:hover)):not(:has(.nx-action-menu-list:hover)) .nx-upload-action-bar,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover:not(:has(.nx-upload-item:hover)):not(:has(.nx-action-menu-list:hover)) .nx-upload-action-bar:not(.d-print-inline-flex),
 [dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .drag-file-label,
-[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .nx-upload-action-bar {
+[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .nx-upload-action-bar:not(.d-print-inline-flex) {
   color: var(--pk-primary-dark) !important;
   display: inline-block !important; 
   transform: translateY(-2px) !important; 
