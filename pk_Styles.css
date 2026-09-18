@@ -597,7 +597,6 @@ body .ng-dropdown-panel,
 [dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .drag-file-label,
 [dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .nx-upload-action-bar:not(.d-print-inline-flex) {
   color: var(--pk-primary-dark) !important;
-  display: inline-block !important; 
 }
 
 /* Se aplica SOLO cuando el contenedor padre tiene .nx-read-only Y no hay archivos subidos */
