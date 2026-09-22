@@ -541,6 +541,72 @@ body .ng-dropdown-panel,
   background:var(--pk-primary-soft) !important;
 }
 
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-toolbar {
+  background: linear-gradient(180deg, var(--pk-white), #FCFBFA) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-bottom: none !important;
+  border-radius: var(--pk-radius) var(--pk-radius) 0 0 !important;
+  padding: 6px 8px !important;
+}
+
+/* Área de edición */
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-content.ck-editor__editable {
+  background: linear-gradient(180deg, var(--pk-white), #FCFBFA) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: 0 0 var(--pk-radius) var(--pk-radius) !important;
+  box-shadow: inset 0 1px 2px rgba(32, 26, 25, .035) !important;
+  color: var(--pk-ink) !important;
+}
+
+/* Foco: mismo efecto rojo que el resto de los inputs */
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-content.ck-editor__editable.ck-focused {
+  border-color: var(--pk-primary) !important;
+  box-shadow: 0 0 0 3.5px var(--pk-primary-soft) !important;
+  outline: none !important;
+}
+
+/* Modo lectura */
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-content.ck-editor__editable.ck-read-only {
+  background: var(--pk-disabled-bg) !important;
+  color: var(--pk-disabled-fg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: none !important;
+}
+
+/* OPCIÓN MÚLTIPLE*/
+
+/* Círculo sin marcar: borde con contraste visible */
+[dir] .nx-theme-styles .nx-theme-form .nx-radio-faux {
+  border-color: var(--pk-line-strong) !important;
+  background: var(--pk-white) !important;
+}
+
+/* Círculo marcado: relleno rojo corporativo en vez de azul */
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux {
+  border-color: var(--pk-primary) !important;
+  background: var(--pk-primary) !important;
+}
+
+/* Por si el punto interior se dibuja con SVG o con ::after */
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux svg path {
+  fill: var(--pk-white) !important;
+}
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux::after {
+  background: var(--pk-white) !important;
+}
+
+/* Foco accesible */
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:focus ~ .nx-radio-container .nx-radio-faux {
+  box-shadow: 0 0 0 3px var(--pk-primary-soft) !important;
+  outline: none !important;
+}
+
+/* Etiqueta de cada opción */
+[dir] .nx-theme-styles .nx-theme-form .nx-radio-label {
+  color: var(--pk-ink) !important;
+  font-weight: 600 !important;
+}
 
 /* --- 13. ADJUNTOS --- */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control,
