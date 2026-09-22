@@ -510,8 +510,7 @@ body .ng-dropdown-panel,
   border: 1px solid var(--pk-primary) !important;
   border-radius: 4px !important; 
   box-shadow: 0 4px 12px rgba(0,0,0,.1) !important; 
-}
-/* 12. CALENDARIO */
+}/* 12. CALENDARIO */
 [dir] .nx-theme-styles .nx-theme-form .nx-group-control-container:has(.flatpickr-calendar.open) {
   z-index: 999999 !important;
 }
@@ -519,6 +518,10 @@ body .ng-dropdown-panel,
 /* Forzar la caja del calendario a estar en la capa superior */
 .flatpickr-calendar {
   z-index: 999999 !important;
+  outline: none !important;
+}
+.flatpickr-calendar:focus {
+  outline: none !important;
 }
 
 .flatpickr-day {
@@ -672,8 +675,7 @@ body .ng-dropdown-panel,
 }
 .flatpickr-prev-month:hover,
 .flatpickr-next-month:hover {
-  fill: var(--pk-primary) !important;
-  background: var(--pk-primary-soft) !important;
+  background: none !important;
 }
 
 /* Letras de los días de la semana (L M X J V S D) */
@@ -687,7 +689,7 @@ span.flatpickr-weekday {
 }
 .flatpickr-current-month .cur-month:hover,
 .flatpickr-current-month .cur-month:focus {
-  background: var(--pk-primary-soft) !important;
+  background: none !important;
   border-bottom-color: var(--pk-primary) !important;
   outline: none !important;
 }
