@@ -637,7 +637,6 @@ body .ng-dropdown-panel,
   box-shadow: none !important;
   background: transparent !important;
 }
-
 /* Anula el anillo de foco azul por defecto de CKEditor en el resto del editor
    (la barra de herramientas), dejando el rojo solo en el área de texto */
 [dir] .nx-theme-styles .nx-theme-form .ck-focused {
@@ -646,12 +645,24 @@ body .ng-dropdown-panel,
   outline: none !important;
 }
 
-/* Quita cualquier borde/fondo interno que traiga el componente de lectura por defecto,
-   para que no se vea una caja anidada dentro de la nuestra */
-[dir] .nx-theme-styles .nx-theme-form ntx-simple-multilinetext * {
+/* Texto rico en modo lectura: primero reseteamos TODOS los niveles internos
+   (etiqueta, contenedor y cualquier elemento dentro) */
+[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group,
+[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group * {
   border: none !important;
   box-shadow: none !important;
   background: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* ...y volvemos a pintar un único borde/fondo, solo en la caja de contenido */
+[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group ntx-simple-multilinetext {
+  display: block !important;
+  background: var(--pk-disabled-bg) !important;
+  color: var(--pk-disabled-fg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  padding: 10px 12px !important;
 }
 
 /* --- 13. ADJUNTOS --- */
