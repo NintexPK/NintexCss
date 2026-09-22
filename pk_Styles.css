@@ -725,6 +725,22 @@ span.flatpickr-weekday {
   box-shadow: none !important;
 }
 
+/* Contenedor del año: sin fondo al pasar el ratón */
+.numInputWrapper,
+.numInputWrapper:hover {
+  background: transparent !important;
+}
+
+/* Flechitas de subir/bajar año: sin resaltado al pasar el ratón */
+.numInputWrapper span.arrowUp,
+.numInputWrapper span.arrowDown {
+  background: transparent !important;
+}
+.numInputWrapper span.arrowUp:hover,
+.numInputWrapper span.arrowDown:hover {
+  background: var(--pk-primary-soft) !important;
+}
+
 /* --- 14. ADJUNTOS --- */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
