@@ -647,6 +647,12 @@ body .ng-dropdown-panel,
   padding: 10px 12px !important;
 }
 
+/* Quita el subrayado por defecto de la etiqueta en este campo concreto */
+[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group ntx-label {
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /* --- 13. ADJUNTOS --- */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
