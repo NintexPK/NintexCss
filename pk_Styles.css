@@ -648,7 +648,8 @@ body .ng-dropdown-panel,
 }
 
 /* Quita el subrayado por defecto de la etiqueta en este campo concreto */
-[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group ntx-label {
+[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group ntx-label,
+[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group ntx-label * {
   border: none !important;
   box-shadow: none !important;
 }
