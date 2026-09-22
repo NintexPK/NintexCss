@@ -657,6 +657,39 @@ body .ng-dropdown-panel,
   box-shadow: none !important;
 }
 
+/* Cabecera mes/año */
+.flatpickr-current-month,
+.flatpickr-current-month input.cur-year,
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  color: var(--pk-ink) !important;
+}
+
+/* Flechas de mes anterior/siguiente */
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  fill: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
+}
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:hover {
+  fill: var(--pk-primary) !important;
+}
+
+/* Letras de los días de la semana (L M X J V S D) */
+span.flatpickr-weekday {
+  color: var(--pk-ink) !important;
+}
+
+/* Quita el azul de foco/hover nativo del selector de mes y del campo de año */
+.flatpickr-current-month .flatpickr-monthDropdown-months:hover,
+.flatpickr-current-month .flatpickr-monthDropdown-months:focus,
+.flatpickr-current-month input.cur-year:hover,
+.flatpickr-current-month input.cur-year:focus {
+  background: var(--pk-primary-soft) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* --- 13. ADJUNTOS --- */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
