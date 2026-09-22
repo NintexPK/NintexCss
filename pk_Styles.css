@@ -673,6 +673,7 @@ body .ng-dropdown-panel,
 .flatpickr-prev-month:hover,
 .flatpickr-next-month:hover {
   fill: var(--pk-primary) !important;
+  background: var(--pk-primary-soft) !important;
 }
 
 /* Letras de los días de la semana (L M X J V S D) */
@@ -681,13 +682,14 @@ span.flatpickr-weekday {
 }
 
 /* Quita el azul de foco/hover nativo del selector de mes y del campo de año */
-.flatpickr-current-month .flatpickr-monthDropdown-months:hover,
-.flatpickr-current-month .flatpickr-monthDropdown-months:focus,
-.flatpickr-current-month input.cur-year:hover,
-.flatpickr-current-month input.cur-year:focus {
+.flatpickr-current-month .cur-month {
+  border-bottom-color: var(--pk-primary) !important;
+}
+.flatpickr-current-month .cur-month:hover,
+.flatpickr-current-month .cur-month:focus {
   background: var(--pk-primary-soft) !important;
+  border-bottom-color: var(--pk-primary) !important;
   outline: none !important;
-  box-shadow: none !important;
 }
 
 /* --- 13. ADJUNTOS --- */
