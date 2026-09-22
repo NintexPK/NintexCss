@@ -619,6 +619,25 @@ body .ng-dropdown-panel,
   font-weight: 600 !important;
 }
 
+/* Texto rico en modo lectura: aquí Nintex usa otro componente distinto a CKEditor */
+[dir] .nx-theme-styles .nx-theme-form ntx-simple-multilinetext {
+  display: block !important;
+  background: var(--pk-disabled-bg) !important;
+  color: var(--pk-disabled-fg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: none !important;
+  padding: 10px 12px !important;
+}
+
+/* El contenedor que envuelve la etiqueta y la caja no debe llevar su propio borde,
+   para que no se vea esa línea suelta encima del cuadro */
+[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
 /* --- 13. ADJUNTOS --- */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
