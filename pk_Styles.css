@@ -541,11 +541,21 @@ body .ng-dropdown-panel,
   background:var(--pk-primary-soft) !important;
 }
 
-[dir] .nx-theme-styles .nx-theme-form .ck.ck-toolbar {
+/* Contenedor exterior: aquí va el único borde/radio de la parte superior */
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-editor__top.ck-reset_all {
   background: linear-gradient(180deg, var(--pk-white), #FCFBFA) !important;
   border: 1px solid var(--pk-line-strong) !important;
   border-bottom: none !important;
   border-radius: var(--pk-radius) var(--pk-radius) 0 0 !important;
+  overflow: hidden !important;
+}
+
+/* Barra de herramientas: sin borde ni esquinas propias, para que no choque con el contenedor */
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-toolbar {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   padding: 6px 8px !important;
 }
 
@@ -585,15 +595,16 @@ body .ng-dropdown-panel,
 /* Círculo marcado: relleno rojo corporativo en vez de azul */
 [dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux {
   border-color: var(--pk-primary) !important;
+  background: var(--pk-white) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux::after {
   background: var(--pk-primary) !important;
 }
 
 /* Por si el punto interior se dibuja con SVG o con ::after */
 [dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux svg path {
-  fill: var(--pk-white) !important;
-}
-[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux::after {
-  background: var(--pk-white) !important;
+  fill: var(--pk-primary) !important;
 }
 
 /* Foco accesible */
