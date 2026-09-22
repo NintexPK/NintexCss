@@ -638,6 +638,22 @@ body .ng-dropdown-panel,
   background: transparent !important;
 }
 
+/* Anula el anillo de foco azul por defecto de CKEditor en el resto del editor
+   (la barra de herramientas), dejando el rojo solo en el área de texto */
+[dir] .nx-theme-styles .nx-theme-form .ck-focused {
+  border-color: var(--pk-line-strong) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Quita cualquier borde/fondo interno que traiga el componente de lectura por defecto,
+   para que no se vea una caja anidada dentro de la nuestra */
+[dir] .nx-theme-styles .nx-theme-form ntx-simple-multilinetext * {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
 /* --- 13. ADJUNTOS --- */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
