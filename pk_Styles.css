@@ -549,6 +549,9 @@ body .ng-dropdown-panel,
   border-radius: var(--pk-radius) var(--pk-radius) 0 0 !important;
   overflow: hidden !important;
 }
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-editor__top.ck-reset_all:has(~ .ck-editor__main .ck-read-only) {
+  display: none !important;
+}
 
 /* Barra de herramientas: sin borde ni esquinas propias, para que no choque con el contenedor */
 [dir] .nx-theme-styles .nx-theme-form .ck.ck-toolbar {
