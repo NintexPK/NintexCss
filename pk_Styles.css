@@ -584,6 +584,14 @@ body .ng-dropdown-panel,
   box-shadow: none !important;
 }
 
+/* Anula el anillo de foco azul por defecto de CKEditor en el resto del editor
+   (la barra de herramientas), dejando el rojo solo en el área de texto */
+[dir] .nx-theme-styles .nx-theme-form .ck-focused {
+  border-color: var(--pk-line-strong) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 /* OPCIÓN MÚLTIPLE*/
 
 /* Círculo sin marcar: borde con contraste visible */
@@ -619,43 +627,17 @@ body .ng-dropdown-panel,
   font-weight: 600 !important;
 }
 
-/* Texto rico en modo lectura: aquí Nintex usa otro componente distinto a CKEditor */
-[dir] .nx-theme-styles .nx-theme-form ntx-simple-multilinetext {
-  display: block !important;
-  background: var(--pk-disabled-bg) !important;
-  color: var(--pk-disabled-fg) !important;
-  border: 1px solid var(--pk-line-strong) !important;
-  border-radius: var(--pk-radius) !important;
-  box-shadow: none !important;
-  padding: 10px 12px !important;
-}
-
-/* El contenedor que envuelve la etiqueta y la caja no debe llevar su propio borde,
-   para que no se vea esa línea suelta encima del cuadro */
-[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group {
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-}
-/* Anula el anillo de foco azul por defecto de CKEditor en el resto del editor
-   (la barra de herramientas), dejando el rojo solo en el área de texto */
-[dir] .nx-theme-styles .nx-theme-form .ck-focused {
-  border-color: var(--pk-line-strong) !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-/* Texto rico en modo lectura: primero reseteamos TODOS los niveles internos
-   (etiqueta, contenedor y cualquier elemento dentro) */
-[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group,
-[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group * {
+/* Texto rico en modo lectura: reseteamos SOLO dentro de este componente concreto
+   (no del contenedor genérico, que también usan otros campos multilínea) */
+[dir] .nx-theme-styles .nx-theme-form ntx-simple-multilinetext,
+[dir] .nx-theme-styles .nx-theme-form ntx-simple-multilinetext * {
   border: none !important;
   box-shadow: none !important;
   background: transparent !important;
   border-radius: 0 !important;
 }
 
-/* ...y volvemos a pintar un único borde/fondo, solo en la caja de contenido */
+/* Y volvemos a pintar un único borde/fondo, solo en la caja en sí */
 [dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group ntx-simple-multilinetext {
   display: block !important;
   background: var(--pk-disabled-bg) !important;
