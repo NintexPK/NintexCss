@@ -510,18 +510,72 @@ body .ng-dropdown-panel,
   border: 1px solid var(--pk-primary) !important;
   border-radius: 4px !important; 
   box-shadow: 0 4px 12px rgba(0,0,0,.1) !important; 
-}/* 12. CALENDARIO */
+}
+
+/* 12. OPCIÓN MÚLTIPLE*/
+
+/* Círculo sin marcar: borde con contraste visible */
+[dir] .nx-theme-styles .nx-theme-form .nx-radio-faux {
+  border-color: var(--pk-line-strong) !important;
+  background: var(--pk-white) !important;
+}
+
+/* Círculo marcado: relleno rojo corporativo en vez de azul */
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux {
+  border-color: var(--pk-primary) !important;
+  background: var(--pk-white) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux::after {
+  background: var(--pk-primary) !important;
+}
+
+/* Por si el punto interior se dibuja con SVG o con ::after */
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux svg path {
+  fill: var(--pk-primary) !important;
+}
+
+/* Foco accesible */
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:focus ~ .nx-radio-container .nx-radio-faux {
+  box-shadow: 0 0 0 3px var(--pk-primary-soft) !important;
+  outline: none !important;
+}
+
+/* Etiqueta de cada opción */
+[dir] .nx-theme-styles .nx-theme-form .nx-radio-label {
+  color: var(--pk-ink) !important;
+  font-weight: 600 !important;
+}
+
+/* 13. CALENDARIO */
 [dir] .nx-theme-styles .nx-theme-form .nx-group-control-container:has(.flatpickr-calendar.open) {
   z-index: 999999 !important;
 }
 
-/* Forzar la caja del calendario a estar en la capa superior */
+/* Forzar la caja del calendario a estar en la capa superior y borde rojo */
 .flatpickr-calendar {
   z-index: 999999 !important;
   outline: none !important;
+  border: 1px solid var(--pk-primary) !important;
+  box-shadow:
+    1px 0 0 var(--pk-primary),
+    -1px 0 0 var(--pk-primary),
+    0 1px 0 var(--pk-primary),
+    0 -1px 0 var(--pk-primary),
+    0 3px 13px rgba(0, 0, 0, .08) !important;
 }
 .flatpickr-calendar:focus {
   outline: none !important;
+}
+
+/* La flechita que apunta al campo, con el mismo borde rojo */
+.flatpickr-calendar.arrowTop:before,
+.flatpickr-calendar.arrowTop:after {
+  border-bottom-color: var(--pk-primary) !important;
+}
+.flatpickr-calendar.arrowBottom:before,
+.flatpickr-calendar.arrowBottom:after {
+  border-top-color: var(--pk-primary) !important;
 }
 
 .flatpickr-day {
@@ -598,40 +652,6 @@ body .ng-dropdown-panel,
   outline: none !important;
 }
 
-/* OPCIÓN MÚLTIPLE*/
-
-/* Círculo sin marcar: borde con contraste visible */
-[dir] .nx-theme-styles .nx-theme-form .nx-radio-faux {
-  border-color: var(--pk-line-strong) !important;
-  background: var(--pk-white) !important;
-}
-
-/* Círculo marcado: relleno rojo corporativo en vez de azul */
-[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux {
-  border-color: var(--pk-primary) !important;
-  background: var(--pk-white) !important;
-}
-
-[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux::after {
-  background: var(--pk-primary) !important;
-}
-
-/* Por si el punto interior se dibuja con SVG o con ::after */
-[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux svg path {
-  fill: var(--pk-primary) !important;
-}
-
-/* Foco accesible */
-[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:focus ~ .nx-radio-container .nx-radio-faux {
-  box-shadow: 0 0 0 3px var(--pk-primary-soft) !important;
-  outline: none !important;
-}
-
-/* Etiqueta de cada opción */
-[dir] .nx-theme-styles .nx-theme-form .nx-radio-label {
-  color: var(--pk-ink) !important;
-  font-weight: 600 !important;
-}
 
 /* Texto rico en modo lectura: reseteamos SOLO dentro de este componente concreto
    (no del contenedor genérico, que también usan otros campos multilínea) */
@@ -667,7 +687,7 @@ body .ng-dropdown-panel,
   color: var(--pk-ink) !important;
 }
 
-/* Flechas de mes anterior/siguiente */
+/* Flechas de mes anterior/siguiente: sin cambios al pasar el ratón */
 .flatpickr-prev-month,
 .flatpickr-next-month {
   fill: var(--pk-primary) !important;
@@ -675,7 +695,9 @@ body .ng-dropdown-panel,
 }
 .flatpickr-prev-month:hover,
 .flatpickr-next-month:hover {
-  background: none !important;
+  background: transparent !important;
+  fill: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
 }
 
 /* Letras de los días de la semana (L M X J V S D) */
@@ -683,18 +705,27 @@ span.flatpickr-weekday {
   color: var(--pk-ink) !important;
 }
 
-/* Quita el azul de foco/hover nativo del selector de mes y del campo de año */
-.flatpickr-current-month .cur-month {
-  border-bottom-color: var(--pk-primary) !important;
-}
+/* Mes: sin ningún efecto de hover/foco, siempre igual */
+.flatpickr-current-month .cur-month,
 .flatpickr-current-month .cur-month:hover,
 .flatpickr-current-month .cur-month:focus {
-  background: none !important;
+  background: transparent !important;
+  color: var(--pk-ink) !important;
   border-bottom-color: var(--pk-primary) !important;
   outline: none !important;
 }
 
-/* --- 13. ADJUNTOS --- */
+/* Año: sin ningún efecto de hover/foco, siempre igual */
+.flatpickr-current-month input.cur-year,
+.flatpickr-current-month input.cur-year:hover,
+.flatpickr-current-month input.cur-year:focus {
+  background: transparent !important;
+  color: var(--pk-ink) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* --- 14. ADJUNTOS --- */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control,
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
   border: none !important;
@@ -823,7 +854,7 @@ span.flatpickr-weekday {
 
 
 /* ========================================================= */
-/* --- 14. POP-OVER DE CONFIRMACIÓN (Eliminar archivo) ---   */
+/* --- 15. POP-OVER DE CONFIRMACIÓN (Eliminar archivo) ---   */
 /* ========================================================= */
 [dir] .nx-theme-styles .nx-theme-form .nx-upload-item {
   position: relative !important;
@@ -898,7 +929,7 @@ body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover,
   transform: translateY(-2px) !important; 
 }
 
-/* 15. ANIMACIONES  */
+/* 16. ANIMACIONES  */
 @keyframes pkIn {
   from {
     opacity:0;
