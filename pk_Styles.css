@@ -417,6 +417,13 @@
   border: 1px solid var(--pk-line-strong) !important;
 }
 
+/* Resalta CLASE pk-notF */
+[dir] .nx-theme-styles .nx-theme-form .pk-notF .form-control {
+  background: var(--pk-primary-soft) !important;
+  border-color: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
+}
+
 /*   9. ETIQUETAS DE CAMPO Y ASTERISCO OBLIGATORIO */
 [dir] .nx-theme-styles .nx-theme-form .nx-form-label.nx-break-word {
   color:var(--pk-ink);

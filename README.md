@@ -19,6 +19,7 @@ Se utilizan para aplicar características muy específicas a campos determinados
 | **`pk-label-tabla`** | Modifica color, fuente y tamaño de las letras. Pensada exclusivamente para los labels que se utilizan para asemejar tablas. |
 | **`pk-title`** | Se asigna al label del nombre del título del formulario para aplicar el color corporativo correspondiente. |
 | **`pk-logo`** | Configuración para la imagen del título. |
+| **`pk-notF`** | Configuración para destacar inputs como error. |
 
 ---
 
