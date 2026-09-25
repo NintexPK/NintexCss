@@ -1,0 +1,966 @@
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400..800);
+
+/*    1. VARIABLES DE COLOR Y TEMA BASE */
+[dir] .nx-theme-styles .nx-theme-form {
+  --pk-primary: #164F89;
+  --pk-primary-dark:#002D5B;
+  --pk-primary-soft:#E8EFF7;
+  --pk-btn-shadow-1:  rgba(22,79,137,.45);
+  --pk-btn-shadow-2: rgba(0,45,91,.65);
+  --pk-ink:#24272A;
+  --pk-muted:#5E6B78;
+  --pk-line:#DDE3EA;
+  --pk-line-strong:#CBD3DC;
+  --pk-disabled-bg:#EEF1F4;
+  --pk-disabled-fg:#4A525B;
+  --pk-white: #fff;
+  --pk-grad-hero:linear-gradient(128deg,#001B38  0%,var(--pk-primary) 62%,#4A86C5 145%);
+  --pk-radius:9px;
+  --pk-radius-lg:12px;
+  font-family:"Open Sans", sans-serif;
+  position:relative !important;
+  z-index:0 !important;
+  overflow:hidden !important;
+  background:var(--pk-white) !important;
+  box-shadow:0 6px 24px rgba(0,0,0,.16) !important;
+  border-radius:var(--pk-radius) !important;
+}
+
+/* 2. MARCA DE AGUA (FONDO GIGANTE) */
+[dir] .nx-theme-styles .nx-theme-form::before {
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  top:-100%;
+  left:-100%;
+  width:300%;
+  height:300%;
+  background-image:url("https://grupopikolin.sharepoint.com/SiteAssets/__sitelcon__pardo.png");
+  background-repeat:repeat;
+  background-size:350px auto;
+  opacity:.08;
+  filter:grayscale(.1);
+  transform:rotate(-16deg);
+  pointer-events:none;
+  z-index:-1;
+}
+
+[dir] .nx-theme-styles .nx-theme-form::after {
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  inset:0;
+  background:radial-gradient(ellipse 180% 180% at 100% 0%,transparent 0%,rgba(255,255,255,.4) 60%,var(--pk-white) 100%);
+  pointer-events:none;
+  z-index:-1;
+}
+
+/*  3. AGRUPACIONES DE CAMPOS Y SUS TÍTULOS */
+[dir] .nx-theme-styles .nx-theme-form .nx-group-control-container {
+  position:relative; 
+  border: none !important; 
+  background:rgba(255, 255, 255, 0.1) !important; 
+  backdrop-filter: blur(6px) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.200) !important; 
+  padding: 1px !important;
+  border-radius: var(--pk-radius) !important;
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-group-control-header-background {
+  background:transparent !important;
+  border:none !important;
+  position:relative;
+  padding-top: 10px !important;
+  padding-bottom:12px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:11px;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-group-control-header-background::after {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  border-radius:2px;
+  background:linear-gradient(90deg,var(--pk-primary) 0%,var(--pk-primary) 6%,var(--pk-line) 46%,transparent 100%);
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-group-control-header .nx-theme-richtext {
+  font-size:15.5px !important;
+  font-weight:800 !important;
+  letter-spacing:-.01em;
+  line-height:1;
+  color:var(--pk-ink) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-group-control-header .nx-theme-richtext * {
+  color:var(--pk-ink) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-group-control-body {
+  background: rgba(255, 255, 255, 0.4) !important;
+  padding-top:10px;
+  padding-bottom: 20px;
+}
+
+/*   4. NUMERACIÓN AUTOMÁTICA DE SECCIONES (01, 02, 03...)   Crea los circulitos rojos con números para las clases pk-g1*/
+[dir] .nx-theme-styles .nx-theme-form [class*="pk-g"] .nx-group-control-header-background::before {
+  margin-top: 5px;
+  margin-left: 10px;
+  flex:0 0 auto;
+  width:27px;
+  height:27px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:monospace;
+  font-size:12px;
+  font-weight:800;
+  color:var(--pk-white);
+  background:var(--pk-primary);
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-g1 .nx-group-control-header-background::before { content:"01"; }
+[dir] .nx-theme-styles .nx-theme-form .pk-g2 .nx-group-control-header-background::before { content:"02"; }
+[dir] .nx-theme-styles .nx-theme-form .pk-g3 .nx-group-control-header-background::before { content:"03"; }
+[dir] .nx-theme-styles .nx-theme-form .pk-g4 .nx-group-control-header-background::before { content:"04"; }
+[dir] .nx-theme-styles .nx-theme-form .pk-g5 .nx-group-control-header-background::before { content:"05"; }
+[dir] .nx-theme-styles .nx-theme-form .pk-g6 .nx-group-control-header-background::before { content:"06"; }
+[dir] .nx-theme-styles .nx-theme-form .pk-g7 .nx-group-control-header-background::before { content:"07"; }
+[dir] .nx-theme-styles .nx-theme-form .pk-g8 .nx-group-control-header-background::before { content:"08"; }
+[dir] .nx-theme-styles .nx-theme-form .pk-g9 .nx-group-control-header-background::before { content:"09"; }
+[dir] .nx-theme-styles .nx-theme-form .pk-g10 .nx-group-control-header-background::before { content:"10"; }
+
+[dir] .nx-theme-styles .nx-theme-form .pk-subgroup .nx-theme-richtext {
+  font-size:13px !important;
+  color:var(--pk-primary-dark) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-subgroup .nx-group-control-header-background::before {
+  content:none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-subgroup {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-subgroup .nx-group-control-body {
+  background: transparent !important;
+}
+
+/*  5. CABECERA PRINCIPAL SUPERIOR (Header, Logo y Título) */
+[dir] .nx-theme-styles .nx-theme-form .pk-header {
+  background:var(--pk-grad-hero) !important;
+  border-radius:var(--pk-radius-lg) !important;
+  padding:14px 0 20px !important;
+  margin-bottom:14px !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-header .nx-group-control-header-background {
+  background:transparent !important;
+  padding:0 20px 10px !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-header .nx-group-control-header-background::after {
+  display:none;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-header :is(.nx-group-control-header-background,.nx-group-control-header-background *) {
+  color:var(--pk-white) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-header .nx-group-control-body {
+  background:var(--pk-white) !important;
+  border-radius:var(--pk-radius-lg) !important;
+  margin:0 16px !important;
+  padding:16px 20px !important;
+  box-shadow:0 18px 38px -14px rgba(30,6,6,.4) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-header .row {
+  align-items:center !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-logo {
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-logo img {
+  height:68px;
+  width:auto;
+  max-width:none;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-title p {
+  text-align:center !important;
+  margin:0 !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext {
+  font-size:27px !important;
+  font-weight:800 !important;
+  text-align:center !important;
+  width:fit-content;
+  margin:0 auto !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext * {
+  color:var(--pk-primary-dark) !important;
+}
+
+/*  6. CAMPOS DE TEXTO Y DESPLEGABLES */
+[dir] .nx-theme-styles .nx-theme-form :is(.form-control.nx-theme-input-1,.nx-theme-ng-select-1 .ng-select-container) {
+  border-radius:var(--pk-radius) !important;
+  border:1px solid var(--pk-line-strong) !important;
+  background:linear-gradient(180deg,var(--pk-white),#FCFBFA) !important;
+  box-shadow:inset 0 1px 2px rgba(32,26,25,.035);
+  transition:all .15s ease;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .input-group .form-control.nx-theme-input-1 {
+  border-radius:var(--pk-radius) 0 0 var(--pk-radius) !important;
+  border-right:none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-btn-input-icon {
+  border:1px solid var(--pk-line-strong) !important;
+  border-left:none !important;
+  border-radius:0 var(--pk-radius) var(--pk-radius) 0 !important;
+  background:var(--pk-white) !important;
+  color:var(--pk-primary) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-has-icon .ng-select-container {
+  border-radius:var(--pk-radius) 0 0 var(--pk-radius) !important;
+  border-right:none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-ng-select-1 {
+  border:none !important;
+  box-shadow:none !important;
+  background:transparent !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form textarea.form-control.nx-theme-input-1 {
+  line-height:1.55;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .form-control.nx-theme-input-1:hover:not(:disabled):not(:focus) {
+  border-color:#B7ACA8 !important;
+  box-shadow:0 2px 5px rgba(32,26,25,.06);
+}
+
+[dir] .nx-theme-styles .nx-theme-form :is(.form-control.nx-theme-input-1:focus,.nx-theme-ng-select-1.ng-select-focused .ng-select-container) {
+  border-color:var(--pk-primary) !important;
+  box-shadow:0 0 0 3.5px var(--pk-primary-soft) !important;
+  outline:none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-ng-select-1:hover .ng-select-container {
+  border-color:#B7ACA8 !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form :is(.ng-clear-wrapper .ng-clear,.ng-value-icon,.ng-clear-wrapper) {
+  color:var(--pk-primary) !important;
+  outline:none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-btn-input-icon path,.ng-arrow path) {
+  fill:var(--pk-primary) !important;
+}
+
+/* Label (tablas) */
+[dir] .nx-theme-styles .nx-theme-form .pk-label-tabla,
+[dir] .nx-theme-styles .nx-theme-form .pk-label-tabla * {
+  font-family: "Open Sans", sans-serif !important;
+  color: var(--pk-ink) !important;
+  font-size: 14px !important;
+}
+
+/*Descripción del campo*/
+[dir] .nx-theme-styles .nx-theme-form .nx-help-text,
+[dir] .nx-theme-styles .nx-theme-form .nx-help-text * {
+  color: var(--pk-ink) !important;
+}
+
+/*   7. CHECKBOXES, RADIO BUTTONS E INTERRUPTORES */
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-theme-radio-1 input[type="radio"],.nx-theme-checkbox-1 input[type="checkbox"]) {
+  accent-color:var(--pk-primary);
+  outline:none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-checkbox-toggle-inline {
+  margin-top:26px;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-checkbox-toggle-container,
+[dir] .nx-theme-styles .nx-theme-form .nx-checkbox-toggle-container * {  
+  color: var(--pk-ink) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-checkbox-toggle-groove {
+  border-radius:999px !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  box-sizing: content-box !important; 
+  display: flex !important;  
+  align-items: center !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form input[type="checkbox"]:focus ~ .nx-checkbox-toggle-container .nx-checkbox-toggle-groove {
+  border-color: var(--pk-primary) !important;
+  box-shadow: 0 0 0 2px var(--pk-primary-soft) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form input[type="checkbox"]:checked ~ .nx-checkbox-toggle-container .nx-checkbox-toggle-groove {
+  background:var(--pk-primary) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form label:focus-within .nx-checkbox-faux {
+  border-color: var(--pk-primary) !important;
+  box-shadow: 0 0 0 3px var(--pk-primary-soft) !important;
+  outline: none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form input[type="checkbox"]:checked ~ .nx-checkbox-container .nx-checkbox-faux {
+  border-color: var(--pk-primary) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form input[type="checkbox"]:checked ~ .nx-checkbox-container .nx-checkbox-faux svg path {
+  fill: var(--pk-primary) !important;
+}
+
+/* 8. Campos deshabilitados*/
+/* Cursor por defecto para todo lo bloqueado */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only input,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only *,
+[dir] .nx-theme-styles .nx-theme-form *:disabled {
+  cursor: default !important; 
+}
+
+/* Ocultar iconos (fecha/persona) en modo lectura */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .nx-btn-input-icon,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .input-group-append {
+  display: none !important;
+}
+
+/* Devolver borde derecho a los campos de fecha/persona que se quedaban cortados */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .input-group .form-control.nx-theme-input-1 {
+  border-right: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+}
+
+/* CAJAS DE TEXTO NORMALES (El marco exterior) */
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-read-only.form-control, .nx-read-only .form-control, input:disabled, textarea:disabled, input[readonly], textarea[readonly]) {
+  background: var(--pk-disabled-bg) !important;
+  color: var(--pk-disabled-fg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: none !important;
+}
+
+/* CAJA PRINCIPAL EXTERIOR (Lectura o Deshabilitado por regla) */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container,
+[dir] .nx-theme-styles .nx-theme-form .ng-select-disabled .ng-select-container {
+  background: var(--pk-disabled-bg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: none !important;
+}
+
+/* MATAR CUALQUIER MARCO INTERNO O INPUT OCULTO DENTRO */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container .ng-value-container,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container .ng-value,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container input,
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container .form-control,
+[dir] .nx-theme-styles .nx-theme-form .ng-select-disabled .ng-select-container .ng-value-container,
+[dir] .nx-theme-styles .nx-theme-form .ng-select-disabled .ng-select-container .ng-value,
+[dir] .nx-theme-styles .nx-theme-form .ng-select-container input:disabled,
+[dir] .nx-theme-styles .nx-theme-form .ng-select-container .form-control:disabled {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+/* Color correcto del texto dentro del desplegable bloqueado */
+[dir] .nx-theme-styles .nx-theme-form .nx-read-only .ng-select-container *,
+[dir] .nx-theme-styles .nx-theme-form .ng-select-disabled .ng-select-container * {
+  color: var(--pk-disabled-fg) !important;
+}
+
+/* Excepción cambio de fecha editable (Solo si NO está en lectura ni bloqueada) */
+[dir] .nx-theme-styles .nx-theme-form input.flatpickr-input:not(.nx-read-only):not(:disabled) {
+  background: linear-gradient(180deg, var(--pk-white), #FCFBFA) !important;
+  color: var(--pk-ink) !important;
+}
+
+/* Excepción fecha en modo lectura o bloqueada por regla */
+[dir] .nx-theme-styles .nx-theme-form input.flatpickr-input.nx-read-only,
+[dir] .nx-theme-styles .nx-theme-form input.flatpickr-input:disabled {
+  background: var(--pk-disabled-bg) !important;
+  color: var(--pk-disabled-fg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+}
+
+/* Resalta CLASE pk-notF */
+[dir] .nx-theme-styles .nx-theme-form .pk-notF .form-control {
+  background: var(--pk-primary-soft) !important;
+  border-color: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
+}
+
+/*   9. ETIQUETAS DE CAMPO Y ASTERISCO OBLIGATORIO */
+[dir] .nx-theme-styles .nx-theme-form .nx-form-label.nx-break-word {
+  color:var(--pk-ink);
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-required {
+  color:var(--pk-primary);
+}
+
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-required, .required-asterisk, [class*="required"], [class*="asterisk"]) {
+  color: var(--pk-primary) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-tooltip, .nx-help-icon, ntx-tooltip, [class*="tooltip"]) :is(svg, path, i, span) {
+  color: var(--pk-primary) !important;
+  fill: var(--pk-primary) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-form-label, .nx-form-label.nx-break-word, .nx-label, label.nx-form-label) {
+  font-family: "Open Sans", sans-serif !important;
+  color: var(--pk-ink) !important; 
+  font-weight: 600 !important;      
+  letter-spacing: -0.01em;
+}
+
+/*  10. BOTONES PRINCIPALES Y SECUNDARIOS */
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-theme-button-1,.nx-theme-button-2) {
+  border-radius:var(--pk-radius) !important;
+  font-weight:700 !important;
+  padding:11px 22px !important;
+  transition:all .15s ease;
+}
+
+/*  Botón Primario  */
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-button-1 {
+  background:var(--pk-grad-hero) !important;
+  color:var(--pk-white) !important;
+  border:none !important;
+  box-shadow:0 8px 18px -6px var(--pk-btn-shadow-1)!important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-button-1:hover {  
+  box-shadow:0 12px 26px -5px var(--pk-btn-shadow-2) !important;
+  transform:translateY(-2px);
+}
+
+/*  Botón Secundario  */
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-button-2 {
+  background:linear-gradient(180deg,var(--pk-white),#FBF9F8) !important;
+  color:var(--pk-muted) !important;
+  border:1px solid var(--pk-line-strong) !important;
+  box-shadow:0 1px 2px rgba(32,26,25,.04) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-button-2:hover {
+  border-color:var(--pk-primary) !important;
+  color:var(--pk-primary-dark) !important;
+  background:var(--pk-primary-soft) !important;
+}
+
+/*  11. LISTAS DESPLEGABLES*/
+[dir] .nx-theme-styles .nx-theme-form .nx-group-control-container:has(.ng-select-opened) {
+  z-index: 999999 !important;
+}
+
+.ng-option-marked {
+  background:var(--pk-primary-soft) !important;
+  color:var(--pk-ink) !important;
+  outline:none !important;
+}
+
+.ng-option-selected {
+  background:var(--pk-primary) !important;
+  color:var(--pk-white) !important;
+  outline:none !important;
+}
+
+/* ELEVAMOS EL CONTENEDOR PADRE DEL INPUT */
+body .ng-select.ng-select-opened,
+[dir] .nx-theme-styles .nx-theme-form .ng-select.ng-select-opened {
+  z-index: 999999 !important;
+  position: relative !important;
+}
+
+/* PANEL DESPLEGABLE */
+body .ng-dropdown-panel,
+[dir] .nx-theme-styles .nx-theme-form .ng-dropdown-panel {
+  position: absolute !important;
+  z-index: 999999 !important; 
+  background: var(--pk-white) !important; 
+  border: 1px solid var(--pk-primary) !important;
+  border-radius: 4px !important; 
+  box-shadow: 0 4px 12px rgba(0,0,0,.1) !important; 
+}
+
+/* 12. OPCIÓN MÚLTIPLE*/
+
+/* Círculo sin marcar: borde con contraste visible */
+[dir] .nx-theme-styles .nx-theme-form .nx-radio-faux {
+  border-color: var(--pk-line-strong) !important;
+  background: var(--pk-white) !important;
+}
+
+/* Círculo marcado: relleno rojo corporativo en vez de azul */
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux {
+  border-color: var(--pk-primary) !important;
+  background: var(--pk-white) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux::after {
+  background: var(--pk-primary) !important;
+}
+
+/* Por si el punto interior se dibuja con SVG o con ::after */
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:checked ~ .nx-radio-container .nx-radio-faux svg path {
+  fill: var(--pk-primary) !important;
+}
+
+/* Foco accesible */
+[dir] .nx-theme-styles .nx-theme-form input[type="radio"]:focus ~ .nx-radio-container .nx-radio-faux {
+  box-shadow: 0 0 0 3px var(--pk-primary-soft) !important;
+  outline: none !important;
+}
+
+/* Etiqueta de cada opción */
+[dir] .nx-theme-styles .nx-theme-form .nx-radio-label {
+  color: var(--pk-ink) !important;
+  font-weight: 600 !important;
+}
+
+/* 13. CALENDARIO */
+[dir] .nx-theme-styles .nx-theme-form .nx-group-control-container:has(.flatpickr-calendar.open) {
+  z-index: 999999 !important;
+}
+
+/* Forzar la caja del calendario a estar en la capa superior y borde rojo */
+.flatpickr-calendar {
+  z-index: 999999 !important;
+  outline: none !important;
+  border: 1px solid var(--pk-primary) !important;
+  box-shadow:
+    1px 0 0 var(--pk-primary),
+    -1px 0 0 var(--pk-primary),
+    0 1px 0 var(--pk-primary),
+    0 -1px 0 var(--pk-primary),
+    0 3px 13px rgba(0, 0, 0, .08) !important;
+}
+.flatpickr-calendar:focus {
+  outline: none !important;
+}
+
+/* La flechita que apunta al campo, con el mismo borde rojo */
+.flatpickr-calendar.arrowTop:before,
+.flatpickr-calendar.arrowTop:after {
+  border-bottom-color: var(--pk-primary) !important;
+}
+.flatpickr-calendar.arrowBottom:before,
+.flatpickr-calendar.arrowBottom:after {
+  border-top-color: var(--pk-primary) !important;
+}
+
+.flatpickr-day {
+  color:var(--pk-ink) !important;
+}
+
+.flatpickr-day.selected,
+.flatpickr-selector-item.selected,
+.flatpickr-action-todayBtn {
+  background:var(--pk-primary) !important;
+  border-color:var(--pk-primary) !important;
+  color:var(--pk-white) !important;
+}
+
+.flatpickr-day.today {
+  border-color:var(--pk-primary) !important;
+}
+
+.flatpickr-day:hover {
+  background:var(--pk-primary-soft) !important;
+}
+
+/* Contenedor exterior: aquí va el único borde/radio de la parte superior */
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-editor__top.ck-reset_all {
+  background: linear-gradient(180deg, var(--pk-white), #FCFBFA) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-bottom: none !important;
+  border-radius: var(--pk-radius) var(--pk-radius) 0 0 !important;
+  overflow: hidden !important;
+}
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-editor__top.ck-reset_all:has(~ .ck-editor__main .ck-read-only) {
+  display: none !important;
+}
+
+/* Barra de herramientas: sin borde ni esquinas propias, para que no choque con el contenedor */
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-toolbar {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 6px 8px !important;
+}
+
+/* Área de edición */
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-content.ck-editor__editable {
+  background: linear-gradient(180deg, var(--pk-white), #FCFBFA) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: 0 0 var(--pk-radius) var(--pk-radius) !important;
+  box-shadow: inset 0 1px 2px rgba(32, 26, 25, .035) !important;
+  color: var(--pk-ink) !important;
+}
+
+/* Foco: mismo efecto rojo que el resto de los inputs */
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-content.ck-editor__editable.ck-focused {
+  border-color: var(--pk-primary) !important;
+  box-shadow: 0 0 0 3.5px var(--pk-primary-soft) !important;
+  outline: none !important;
+}
+
+/* Modo lectura */
+[dir] .nx-theme-styles .nx-theme-form .ck.ck-content.ck-editor__editable.ck-read-only {
+  background: var(--pk-disabled-bg) !important;
+  color: var(--pk-disabled-fg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: none !important;
+}
+
+/* Anula el anillo de foco azul por defecto de CKEditor en el resto del editor
+   (la barra de herramientas), dejando el rojo solo en el área de texto */
+[dir] .nx-theme-styles .nx-theme-form .ck-focused {
+  border-color: var(--pk-line-strong) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+
+/* Texto rico en modo lectura: reseteamos SOLO dentro de este componente concreto
+   (no del contenedor genérico, que también usan otros campos multilínea) */
+[dir] .nx-theme-styles .nx-theme-form ntx-simple-multilinetext,
+[dir] .nx-theme-styles .nx-theme-form ntx-simple-multilinetext * {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* Y volvemos a pintar un único borde/fondo, solo en la caja en sí */
+[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group ntx-simple-multilinetext {
+  display: block !important;
+  background: var(--pk-disabled-bg) !important;
+  color: var(--pk-disabled-fg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  padding: 10px 12px !important;
+}
+
+/* Quita el subrayado por defecto de la etiqueta en este campo concreto */
+[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group ntx-label,
+[dir] .nx-theme-styles .nx-theme-form .nx-textarea-container.nx-zinc-control-group ntx-label * {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Cabecera mes/año */
+.flatpickr-current-month,
+.flatpickr-current-month input.cur-year,
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  color: var(--pk-ink) !important;
+}
+
+/* Flechas de mes anterior/siguiente: sin cambios al pasar el ratón */
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  fill: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
+}
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:hover {
+  background: transparent !important;
+  fill: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
+}
+
+/* Letras de los días de la semana (L M X J V S D) */
+span.flatpickr-weekday {
+  color: var(--pk-ink) !important;
+}
+
+/* Mes: sin ningún efecto de hover/foco, siempre igual */
+.flatpickr-current-month .cur-month,
+.flatpickr-current-month .cur-month:hover,
+.flatpickr-current-month .cur-month:focus {
+  background: transparent !important;
+  color: var(--pk-ink) !important;
+  border-bottom-color: var(--pk-primary) !important;
+  outline: none !important;
+}
+
+/* Año: sin ningún efecto de hover/foco, siempre igual */
+.flatpickr-current-month input.cur-year,
+.flatpickr-current-month input.cur-year:hover,
+.flatpickr-current-month input.cur-year:focus {
+  background: transparent !important;
+  color: var(--pk-ink) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Contenedor del año: sin fondo al pasar el ratón */
+.numInputWrapper,
+.numInputWrapper:hover {
+  background: transparent !important;
+}
+
+/* Flechitas de subir/bajar año: sin resaltado al pasar el ratón */
+.numInputWrapper span.arrowUp,
+.numInputWrapper span.arrowDown {
+  background: transparent !important;
+}
+.numInputWrapper span.arrowUp:hover,
+.numInputWrapper span.arrowDown:hover {
+  background: var(--pk-primary-soft) !important;
+}
+
+/* --- 14. ADJUNTOS --- */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control,
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-file-upload-1 {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* 1. CAJA BASE EDITABLE */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container {
+  border: none !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  padding: 24px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 2. TEXTOS INTERNOS Y ELIMINAR DUPLICADOS */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-file-list:not(:has(.nx-upload-item)) {
+  display: none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container * {
+  font-size: 15px !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-action-bar:not(.d-print-inline-flex),
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drag-file-label {
+  background: transparent !important;
+  color: var(--pk-ink) !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Blindaje: la copia de impresión nunca debe mostrarse en pantalla*/
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-action-bar.d-print-inline-flex {
+  display: none !important;
+}
+
+/* 3. HOVER Y DRAG-OVER: EFECTO EN EL FONDO (Caja rosa) */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover:not(:has(.nx-upload-item:hover)):not(:has(.nx-action-menu-list:hover)),
+[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:has(.nx-drag-over) .drop-container {
+  background: var(--pk-primary-soft) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* 4. HOVER Y DRAG-OVER: EFECTO EN EL TEXTO */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover:not(:has(.nx-upload-item:hover)):not(:has(.nx-action-menu-list:hover)) .drag-file-label,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover:not(:has(.nx-upload-item:hover)):not(:has(.nx-action-menu-list:hover)) .nx-upload-action-bar:not(.d-print-inline-flex),
+[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .drag-file-label,
+[dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .nx-upload-action-bar:not(.d-print-inline-flex) {
+  color: var(--pk-primary-dark) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Se aplica SOLO cuando el contenedor padre tiene .nx-read-only Y no hay archivos subidos */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:not(:has(.nx-upload-item)) {
+  background: var(--pk-disabled-bg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: none !important;
+  height: 60px !important;
+  min-height: 60px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: default !important;
+}
+
+/* OCULTAR ELEMENTOS INTERNOS EN LECTURA */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:not(:has(.nx-upload-item)) .nx-upload-action-bar {
+  display: none !important;
+}
+
+/* texto limpio */
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:not(:has(.nx-upload-item))::after {
+  content: "No files attached";
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--pk-disabled-fg) !important;
+}
+
+/* ESTILOS DE LOS ARCHIVOS SUBIDOS */
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item .upload-item-top {
+  border: 1px solid var(--pk-primary) !important;
+  border-radius: var(--pk-radius) !important;
+  background: var(--pk-disabled-bg) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item .nx-upload-file * {
+  color: var(--pk-ink) !important;
+  text-decoration: none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item ntx-icon svg,
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item ntx-icon svg * {
+  fill: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
+  stroke: none !important; 
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button,
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button * {
+  color: var(--pk-primary) !important;
+  fill: var(--pk-primary) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item button:hover {
+  background-color: transparent !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:has(.nx-upload-item) .nx-upload-action-bar,
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:has(.nx-upload-item) .drag-file-label {
+  display: none !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control.nx-read-only .drop-container:has(.nx-upload-item) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+
+/* ========================================================= */
+/* --- 15. POP-OVER DE CONFIRMACIÓN (Eliminar archivo) ---   */
+/* ========================================================= */
+[dir] .nx-theme-styles .nx-theme-form .nx-upload-item {
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* CAZAMOS EL MENÚ ESTÉ DONDE ESTÉ (En el body o dentro del form) */
+body .nx-action-menu-list,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+}
+
+body .nx-action-menu-list .nx-action-message,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list .nx-action-message {
+  color: var(--pk-ink) !important;
+  font-weight: 600 !important;
+  margin-bottom: 12px !important;
+}
+
+body .nx-action-menu-list button,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list button {
+  border-radius: var(--pk-radius) !important;
+  font-weight: 700 !important;
+  padding: 8px 16px !important;
+  transition: all .2s ease !important;
+}
+
+/* --- Botón Cancelar --- */
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"],
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"] {
+  background: linear-gradient(180deg, var(--pk-white), #FBF9F8) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  box-shadow: 0 1px 2px rgba(32, 26, 25, 0.04) !important;
+  outline: none !important;
+}
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"] *,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"] * {
+  color: var(--pk-muted) !important;
+}
+
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover {
+  border-color: var(--pk-primary) !important;
+  background: var(--pk-primary-soft) !important;
+}
+body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover *,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover * {
+  color: var(--pk-primary-dark) !important;
+}
+
+/* --- Botón Eliminar (Forzamos color blanco) --- */
+body .nx-action-menu-list [data-e2e="prompt-confirm-button"],
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"] {
+  background: var(--pk-grad-hero) !important;
+  border: none !important;
+  box-shadow: 0 4px 8px rgba(15,63,115,.15) !important;
+  outline: none !important;
+}
+/* Ignoramos los hover anteriores y forzamos blanco a las letras */
+body .nx-action-menu-list [data-e2e="prompt-confirm-button"] *,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"] * {
+  color: var(--pk-white) !important;
+}
+
+body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover,
+[dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover {
+  background: var(--pk-grad-hero) !important; 
+  box-shadow: 0 6px 14px rgba(15,63,115,.3) !important;
+  transform: translateY(-2px) !important; 
+}
+
+/* 16. ANIMACIONES  */
+@keyframes pkIn {
+  from {
+    opacity:0;
+    transform:translateY(10px);
+  }
+}
+
+[dir] .nx-theme-styles .nx-theme-form :is(.form-group,.nx-group-control-container) {
+  animation:pkIn .5s ease-out;
+}
+
