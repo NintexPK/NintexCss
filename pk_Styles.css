@@ -1086,7 +1086,7 @@ body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover,
 }
 
 [dir] .nx-theme-styles .nx-theme-form .nx-signature-border {
-  background: var(--pk-primary-soft) !important;
+  background: var(--pk-white) !important;
   border: 1.5px dashed var(--pk-line-hover) !important;
   border-radius: var(--pk-radius) !important;
   transition: all .15s ease;
@@ -1134,7 +1134,7 @@ body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover,
 
 /* Fondo oscurecido detrás del popup, tintado con el azul corporativo */
 body .cdk-overlay-backdrop.nx-theme-styles-popup-overlay {
-  background: rgba(var(--pk-shadow-tint), .35) !important;
+  background:transparent !important;
 }
 
 /* Caja del popup */
