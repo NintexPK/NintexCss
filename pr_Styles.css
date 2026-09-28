@@ -337,8 +337,8 @@
 }
 
 [dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext {
-  font-size:27px !important;
-  font-weight:800 !important;
+  font-size:14px !important;
+  font-weight:400 !important;
   text-align:center !important;
   width:fit-content;
   margin:0 auto !important;
@@ -367,6 +367,12 @@
 /* Párrafos vacíos que deja el editor entre líneas */
 [dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext p:is(:empty, :has(> br:only-child)) {
   display: none !important;
+}
+
+/* Solo el texto en negrita del label lleva el tamaño grande del título */
+[dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext :is(strong, b) {
+  font-size:27px !important;
+  font-weight:800 !important;
 }
 
 /*  6. CAMPOS DE TEXTO Y DESPLEGABLES */
