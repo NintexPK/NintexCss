@@ -1220,6 +1220,29 @@ body .nx-signature-popup-btn-row :is([class*="btn-done"], .nx-theme-button-1):ho
   transform: translateY(-2px);
 }
 
+/* Enlace "Clear signature" */
+[dir] .nx-theme-styles .nx-theme-form ntx-signature :is(a, button, .btn-link) {
+  display: inline-block !important;
+  margin-top: 8px !important;
+  padding: 6px 16px !important;
+  font-family: var(--pk-font) !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  color: var(--pk-muted) !important;
+  background: var(--pk-grad-surface) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: var(--pk-shadow-soft) !important;
+  transition: all .15s ease !important;
+  cursor: pointer;
+}
+
+[dir] .nx-theme-styles .nx-theme-form ntx-signature :is(a, button, .btn-link):hover {
+  border-color: var(--pk-primary) !important;
+  color: var(--pk-primary-dark) !important;
+  background: var(--pk-primary-soft) !important;
+}
+
 /* 17. ANIMACIONES  */
 @keyframes pkIn {
   from {
