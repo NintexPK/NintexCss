@@ -1243,6 +1243,23 @@ body .nx-signature-popup-btn-row :is([class*="btn-done"], .nx-theme-button-1):ho
   background: var(--pk-primary-soft) !important;
 }
 
+/* Ya firmado*/
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-border:has(img, canvas) {
+  background: var(--pk-white) !important;
+  border-style: solid !important;
+  border-color: var(--pk-line-strong) !important;
+  overflow: hidden !important;
+}
+
+/* La imagen de la firma se adapta a las esquinas redondeadas y no tapa el borde */
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-border :is(img, canvas) {
+  display: block;
+  max-width: 100%;
+  background: transparent !important;
+  border: none !important;
+  border-radius: calc(var(--pk-radius) - 2px) !important;
+}
+
 /* 17. ANIMACIONES  */
 @keyframes pkIn {
   from {
