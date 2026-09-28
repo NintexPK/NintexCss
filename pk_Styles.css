@@ -52,7 +52,7 @@
   --pk-radius-sm: 4px;
   --pk-z-top: 999999;
   --pk-font: "Open Sans", sans-serif;
-  --pk-dropdown-max: 320px; 
+  --pk-dropdown-max: 120px; 
 
 }
 
@@ -622,8 +622,7 @@ body .ng-dropdown-panel .ng-dropdown-panel-items {
   overflow-y: auto !important;
 }
 
-/* Mientras hay una lista abierta, el formulario reserva ese mismo hueco abajo
-   (el formulario recorta lo que sobresale para contener la marca de agua) */
+/* Mientras hay una lista abierta */
 [dir] .nx-theme-styles .nx-theme-form:has(.ng-select-opened) {
   padding-bottom: calc(var(--pk-dropdown-max, 240px) + 20px) !important;
 }
