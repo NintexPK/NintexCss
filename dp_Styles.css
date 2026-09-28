@@ -1,47 +1,70 @@
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400..800);
 
-/*    1. VARIABLES DE COLOR Y TEMA BASE */
-[dir] .nx-theme-styles .nx-theme-form {
-  --pk-primary: #12224E;          
-  --pk-primary-dark: #0A1430;     
-  --pk-primary-soft: #E6E9F1;     
-  --pk-btn-shadow-1: rgba(18,34,78,.40);
-  --pk-btn-shadow-2: rgba(10,20,48,.60);
-  --pk-ink: #242424;              
-  --pk-muted: #48545C;            
+/* 1. VARIABLES GLOBALES */
+:root {
+  --pk-primary: #2B3990;         
+  --pk-primary-dark: #1B2466;     
+  --pk-primary-light: #5B8FD0;    
+  --pk-primary-soft: #E9ECF8;     
+  --pk-shadow-tint: 43,57,144; 
+  --pk-ink: #242424;
+  --pk-muted: #48545C;
   --pk-line: #E1E4E8;
   --pk-line-strong: #CDD2D8;
-  --pk-line-hover: #A4ACB5;       
-  --pk-surface-tint: #F8F9FA;     
-  --pk-shadow-tint: 18,34,78;     
-  --pk-disabled-bg: #F2F2F2;      
+  --pk-line-hover: #A4ACB5;
+  --pk-surface-tint: #F8F9FA;
+  --pk-disabled-bg: #F2F2F2;
   --pk-disabled-fg: #48545C;
   --pk-white: #fff;
-  --pk-grad-hero: linear-gradient(128deg,#070E22 0%,var(--pk-primary) 62%,#3F5C9C 145%);
+  --pk-grad-hero: linear-gradient(128deg,var(--pk-primary-dark) 0%,var(--pk-primary) 50%,var(--pk-primary-light) 130%);
+  --pk-grad-surface: var(--pk-grad-surface);
+  --pk-shadow-form: 0 6px 24px rgba(0,0,0,.16);
+  --pk-shadow-card: 0 4px 16px rgba(0,0,0,.2);
+  --pk-shadow-card-hover: 0 6px 20px rgba(0,0,0,.18);
+  --pk-shadow-popup: var(--pk-shadow-popup);
+  --pk-shadow-inset: inset 0 1px 2px rgba(var(--pk-shadow-tint),.035);
+  --pk-shadow-soft: var(--pk-shadow-soft);
+  --pk-btn-shadow-1: rgba(var(--pk-shadow-tint),.40);
+  --pk-btn-shadow-2: rgba(var(--pk-shadow-tint),.55);
+  --pk-focus-ring: var(--pk-focus-ring);
+  --pk-glass-1: rgba(255,255,255,.1);
+  --pk-glass-2: var(--pk-glass-2);
+  --pk-glass-3: rgba(255,255,255,.7);
+  --pk-watermark-img: var(--pk-watermark-img);
+  --pk-watermark-size: 460px;
+  --pk-watermark-opacity: .08;
+  --pk-watermark-veil: radial-gradient(ellipse 180% 180% at 100% 0%,transparent 0%,rgba(255,255,255,.15) 60%,rgba(255,255,255,.55) 100%);
   --pk-radius: 9px;
   --pk-radius-lg: 12px;
-  font-family: "Open Sans", sans-serif;
+  --pk-radius-sm: 4px;
+  --pk-z-top: 999999;
+  --pk-font: "Open Sans", sans-serif;
+}
+
+[dir] .nx-theme-styles .nx-theme-form {
+  font-family: var(--pk-font);
   position: relative !important;
   z-index: 0 !important;
   overflow: hidden !important;
   background: var(--pk-white) !important;
-  box-shadow: 0 6px 24px rgba(0,0,0,.16) !important;
+  box-shadow: var(--pk-shadow-form) !important;
   border-radius: var(--pk-radius) !important;
 }
 
-/* 2. MARCA DE AGUA (FONDO GIGANTE)*/
+/* 2. MARCA DE AGUA (FONDO GIGANTE) */
 [dir] .nx-theme-styles .nx-theme-form::before {
   content:"" !important;
   display:block !important;
   position:absolute !important;
-  top:-100%;
-  left:-100%;
-  width:300%;
-  height:300%;
-  background-image:url("https://grupopikolin.sharepoint.com/SiteAssets/__siteIcon__Dunlopillo.png");
+  top:-150%;
+  left:-150%;
+  width:400%;
+  height:400%;
+  background-image:var(--pk-watermark-img);
   background-repeat:repeat;
-  background-size:350px auto;
-  opacity:.08;
+  background-size:var(--pk-watermark-size) auto;
+  background-position:center;
+  opacity:var(--pk-watermark-opacity);
   filter:grayscale(.1);
   transform:rotate(-16deg);
   pointer-events:none;
@@ -53,7 +76,7 @@
   display:block !important;
   position:absolute !important;
   inset:0;
-  background:radial-gradient(ellipse 180% 180% at 100% 0%,transparent 0%,rgba(255,255,255,.4) 60%,var(--pk-white) 100%);
+  background:var(--pk-watermark-veil);
   pointer-events:none;
   z-index:-1;
 }
@@ -62,9 +85,9 @@
 [dir] .nx-theme-styles .nx-theme-form .nx-group-control-container {
   position:relative;
   border: none !important;
-  background:rgba(255, 255, 255, 0.1) !important;
+  background:var(--pk-glass-1) !important;
   backdrop-filter: blur(6px) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.200) !important;
+  box-shadow: var(--pk-shadow-card) !important;
   padding: 1px !important;
   border-radius: var(--pk-radius) !important;
   margin-top: 10px;
@@ -106,7 +129,7 @@
 }
 
 [dir] .nx-theme-styles .nx-theme-form .nx-group-control-body {
-  background: rgba(255, 255, 255, 0.4) !important;
+  background: var(--pk-glass-2) !important;
   padding-top:10px;
   padding-bottom: 20px;
 }
@@ -188,7 +211,7 @@
   border-radius:var(--pk-radius-lg) !important;
   margin:0 16px !important;
   padding:16px 20px !important;
-  box-shadow:0 18px 38px -14px rgba(10,20,48,.4) !important;
+  box-shadow:0 18px 38px -14px rgba(var(--pk-shadow-tint),.30) !important;
 }
 
 [dir] .nx-theme-styles .nx-theme-form .pk-header .row {
@@ -228,8 +251,8 @@
 [dir] .nx-theme-styles .nx-theme-form :is(.form-control.nx-theme-input-1,.nx-theme-ng-select-1 .ng-select-container) {
   border-radius:var(--pk-radius) !important;
   border:1px solid var(--pk-line-strong) !important;
-  background:linear-gradient(180deg,var(--pk-white),var(--pk-surface-tint)) !important;
-  box-shadow:inset 0 1px 2px rgba(var(--pk-shadow-tint),.035);
+  background:var(--pk-grad-surface) !important;
+  box-shadow:var(--pk-shadow-inset);
   transition:all .15s ease;
 }
 
@@ -268,7 +291,7 @@
 
 [dir] .nx-theme-styles .nx-theme-form :is(.form-control.nx-theme-input-1:focus,.nx-theme-ng-select-1.ng-select-focused .ng-select-container) {
   border-color:var(--pk-primary) !important;
-  box-shadow:0 0 0 3.5px var(--pk-primary-soft) !important;
+  box-shadow:var(--pk-focus-ring) !important;
   outline:none !important;
 }
 
@@ -288,7 +311,7 @@
 /* Label (tablas) */
 [dir] .nx-theme-styles .nx-theme-form .pk-label-tabla,
 [dir] .nx-theme-styles .nx-theme-form .pk-label-tabla * {
-  font-family: "Open Sans", sans-serif !important;
+  font-family: var(--pk-font) !important;
   color: var(--pk-ink) !important;
   font-size: 14px !important;
 }
@@ -408,7 +431,7 @@
 
 /* Excepción cambio de fecha editable (Solo si NO está en lectura ni bloqueada) */
 [dir] .nx-theme-styles .nx-theme-form input.flatpickr-input:not(.nx-read-only):not(:disabled) {
-  background: linear-gradient(180deg, var(--pk-white), var(--pk-surface-tint)) !important;
+  background: var(--pk-grad-surface) !important;
   color: var(--pk-ink) !important;
 }
 
@@ -446,7 +469,7 @@
 }
 
 [dir] .nx-theme-styles .nx-theme-form :is(.nx-form-label, .nx-form-label.nx-break-word, .nx-label, label.nx-form-label) {
-  font-family: "Open Sans", sans-serif !important;
+  font-family: var(--pk-font) !important;
   color: var(--pk-ink) !important;
   font-weight: 600 !important;
   letter-spacing: -0.01em;
@@ -475,10 +498,10 @@
 
 /*  Botón Secundario  */
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-button-2 {
-  background:linear-gradient(180deg,var(--pk-white),var(--pk-surface-tint)) !important;
+  background:var(--pk-grad-surface) !important;
   color:var(--pk-muted) !important;
   border:1px solid var(--pk-line-strong) !important;
-  box-shadow:0 1px 2px rgba(var(--pk-shadow-tint),.04) !important;
+  box-shadow:var(--pk-shadow-soft) !important;
 }
 
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-button-2:hover {
@@ -489,25 +512,24 @@
 
 /*  11. LISTAS DESPLEGABLES*/
 [dir] .nx-theme-styles .nx-theme-form .nx-group-control-container:has(.ng-select-opened) {
-  z-index: 999999 !important;
+  z-index: var(--pk-z-top) !important;
 }
-
 .ng-option-marked {
-  background:var(--pk-primary-soft, #E6E9F1) !important;
-  color:var(--pk-ink, #242424) !important;
+  background:var(--pk-primary-soft) !important;
+  color:var(--pk-ink) !important;
   outline:none !important;
 }
 
 .ng-option-selected {
-  background:var(--pk-primary, #12224E) !important;
-  color:var(--pk-white, #fff) !important;
+  background:var(--pk-primary) !important;
+  color:var(--pk-white) !important;
   outline:none !important;
 }
 
 /* ELEVAMOS EL CONTENEDOR PADRE DEL INPUT */
 body .ng-select.ng-select-opened,
 [dir] .nx-theme-styles .nx-theme-form .ng-select.ng-select-opened {
-  z-index: 999999 !important;
+  z-index: var(--pk-z-top) !important;
   position: relative !important;
 }
 
@@ -515,11 +537,11 @@ body .ng-select.ng-select-opened,
 body .ng-dropdown-panel,
 [dir] .nx-theme-styles .nx-theme-form .ng-dropdown-panel {
   position: absolute !important;
-  z-index: 999999 !important;
-  background: var(--pk-white, #fff) !important;
-  border: 1px solid var(--pk-primary, #12224E) !important;
-  border-radius: 4px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,.1) !important;
+  z-index: var(--pk-z-top) !important;
+  background: var(--pk-white) !important;
+  border: 1px solid var(--pk-primary) !important;
+  border-radius: var(--pk-radius-sm) !important;
+  box-shadow: var(--pk-shadow-popup) !important;
 }
 
 /* 12. OPCIÓN MÚLTIPLE*/
@@ -559,20 +581,20 @@ body .ng-dropdown-panel,
 
 /* 13. CALENDARIO */
 [dir] .nx-theme-styles .nx-theme-form .nx-group-control-container:has(.flatpickr-calendar.open) {
-  z-index: 999999 !important;
+  z-index: var(--pk-z-top) !important;
 }
 
 /* Forzar la caja del calendario a estar en la capa superior y borde corporativo */
 .flatpickr-calendar {
-  z-index: 999999 !important;
+  z-index: var(--pk-z-top) !important;
   outline: none !important;
-  border: 1px solid var(--pk-primary, #12224E) !important;
+  border: 1px solid var(--pk-primary) !important;
   box-shadow:
-    1px 0 0 var(--pk-primary, #12224E),
-    -1px 0 0 var(--pk-primary, #12224E),
-    0 1px 0 var(--pk-primary, #12224E),
-    0 -1px 0 var(--pk-primary, #12224E),
-    0 3px 13px rgba(0, 0, 0, .08) !important;
+    1px 0 0 var(--pk-primary),
+    -1px 0 0 var(--pk-primary),
+    0 1px 0 var(--pk-primary),
+    0 -1px 0 var(--pk-primary),
+    var(--pk-shadow-calendar) !important;
 }
 .flatpickr-calendar:focus {
   outline: none !important;
@@ -581,36 +603,36 @@ body .ng-dropdown-panel,
 /* La flechita que apunta al campo, con el mismo borde */
 .flatpickr-calendar.arrowTop:before,
 .flatpickr-calendar.arrowTop:after {
-  border-bottom-color: var(--pk-primary, #12224E) !important;
+  border-bottom-color: var(--pk-primary) !important;
 }
 .flatpickr-calendar.arrowBottom:before,
 .flatpickr-calendar.arrowBottom:after {
-  border-top-color: var(--pk-primary, #12224E) !important;
+  border-top-color: var(--pk-primary) !important;
 }
 
 .flatpickr-day {
-  color:var(--pk-ink, #242424) !important;
+  color:var(--pk-ink) !important;
 }
 
 .flatpickr-day.selected,
 .flatpickr-selector-item.selected,
 .flatpickr-action-todayBtn {
-  background:var(--pk-primary, #12224E) !important;
-  border-color:var(--pk-primary, #12224E) !important;
-  color:var(--pk-white, #fff) !important;
+  background:var(--pk-primary) !important;
+  border-color:var(--pk-primary) !important;
+  color:var(--pk-white) !important;
 }
 
 .flatpickr-day.today {
-  border-color:var(--pk-primary, #12224E) !important;
+  border-color:var(--pk-primary) !important;
 }
 
 .flatpickr-day:hover {
-  background:var(--pk-primary-soft, #E6E9F1) !important;
+  background:var(--pk-primary-soft) !important;
 }
 
 /* Contenedor exterior: aquí va el único borde/radio de la parte superior */
 [dir] .nx-theme-styles .nx-theme-form .ck.ck-editor__top.ck-reset_all {
-  background: linear-gradient(180deg, var(--pk-white), var(--pk-surface-tint)) !important;
+  background: var(--pk-grad-surface) !important;
   border: 1px solid var(--pk-line-strong) !important;
   border-bottom: none !important;
   border-radius: var(--pk-radius) var(--pk-radius) 0 0 !important;
@@ -631,17 +653,17 @@ body .ng-dropdown-panel,
 
 /* Área de edición */
 [dir] .nx-theme-styles .nx-theme-form .ck.ck-content.ck-editor__editable {
-  background: linear-gradient(180deg, var(--pk-white), var(--pk-surface-tint)) !important;
+  background: var(--pk-grad-surface) !important;
   border: 1px solid var(--pk-line-strong) !important;
   border-radius: 0 0 var(--pk-radius) var(--pk-radius) !important;
-  box-shadow: inset 0 1px 2px rgba(var(--pk-shadow-tint), .035) !important;
+  box-shadow: var(--pk-shadow-inset) !important;
   color: var(--pk-ink) !important;
 }
 
 /* Foco: mismo efecto corporativo que el resto de los inputs */
 [dir] .nx-theme-styles .nx-theme-form .ck.ck-content.ck-editor__editable.ck-focused {
   border-color: var(--pk-primary) !important;
-  box-shadow: 0 0 0 3.5px var(--pk-primary-soft) !important;
+  box-shadow: var(--pk-focus-ring) !important;
   outline: none !important;
 }
 
@@ -692,43 +714,43 @@ body .ng-dropdown-panel,
 .flatpickr-current-month,
 .flatpickr-current-month input.cur-year,
 .flatpickr-current-month .flatpickr-monthDropdown-months {
-  color: var(--pk-ink, #242424) !important;
+  color: var(--pk-ink) !important;
 }
 
 /* Flechas de mes anterior/siguiente: sin cambios al pasar el ratón */
 .flatpickr-prev-month,
 .flatpickr-next-month {
-  fill: var(--pk-primary, #12224E) !important;
-  color: var(--pk-primary, #12224E) !important;
+  fill: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
 }
 .flatpickr-prev-month:hover,
 .flatpickr-next-month:hover {
   background: transparent !important;
-  fill: var(--pk-primary, #12224E) !important;
-  color: var(--pk-primary, #12224E) !important;
+  fill: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
 }
 
 /* Letras de los días de la semana (L M X J V S D) */
 span.flatpickr-weekday {
-  color: var(--pk-ink, #242424) !important;
+  color: var(--pk-ink) !important;
 }
 
-/* Mes: sin ningún efecto de hover/foco*/
+/* Mes: sin ningún efecto de hover/foco, siempre igual */
 .flatpickr-current-month .cur-month,
 .flatpickr-current-month .cur-month:hover,
 .flatpickr-current-month .cur-month:focus {
   background: transparent !important;
-  color: var(--pk-ink, #242424) !important;
-  border-bottom-color: var(--pk-primary, #12224E) !important;
+  color: var(--pk-ink) !important;
+  border-bottom-color: var(--pk-primary) !important;
   outline: none !important;
 }
 
-/* Año: sin ningún efecto de hover/foco*/
+/* Año: sin ningún efecto de hover/foco, siempre igual */
 .flatpickr-current-month input.cur-year,
 .flatpickr-current-month input.cur-year:hover,
 .flatpickr-current-month input.cur-year:focus {
   background: transparent !important;
-  color: var(--pk-ink, #242424) !important;
+  color: var(--pk-ink) !important;
   outline: none !important;
   box-shadow: none !important;
 }
@@ -746,7 +768,7 @@ span.flatpickr-weekday {
 }
 .numInputWrapper span.arrowUp:hover,
 .numInputWrapper span.arrowDown:hover {
-  background: var(--pk-primary-soft, #E6E9F1) !important;
+  background: var(--pk-primary-soft) !important;
 }
 
 /* --- 14. ADJUNTOS --- */
@@ -758,17 +780,17 @@ span.flatpickr-weekday {
   padding: 0 !important;
 }
 
-/* CAJA BASE EDITABLE */
+/* 1. CAJA BASE EDITABLE */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container {
   border: none !important;
-  background: rgba(255, 255, 255, 0.7) !important;
+  background: var(--pk-glass-3) !important;
   border-radius: var(--pk-radius) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: var(--pk-shadow-card) !important;
   padding: 24px !important;
   transition: all 0.3s ease !important;
 }
 
-/* TEXTOS INTERNOS Y ELIMINAR DUPLICADOS */
+/* 2. TEXTOS INTERNOS Y ELIMINAR DUPLICADOS */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .nx-upload-file-list:not(:has(.nx-upload-item)) {
   display: none !important;
 }
@@ -790,15 +812,15 @@ span.flatpickr-weekday {
   display: none !important;
 }
 
-/* HOVER Y DRAG-OVER: EFECTO EN EL FONDO (tinte corporativo suave) */
+/* 3. HOVER Y DRAG-OVER: EFECTO EN EL FONDO (tinte corporativo suave) */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover:not(:has(.nx-upload-item:hover)):not(:has(.nx-action-menu-list:hover)),
 [dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over,
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:has(.nx-drag-over) .drop-container {
   background: var(--pk-primary-soft) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+  box-shadow: var(--pk-shadow-card-hover) !important;
 }
 
-/* HOVER Y DRAG-OVER: EFECTO EN EL TEXTO */
+/* 4. HOVER Y DRAG-OVER: EFECTO EN EL TEXTO */
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover:not(:has(.nx-upload-item:hover)):not(:has(.nx-action-menu-list:hover)) .drag-file-label,
 [dir] .nx-theme-styles .nx-theme-form .nx-file-upload-control:not(.nx-read-only) .drop-container:hover:not(:has(.nx-upload-item:hover)):not(:has(.nx-action-menu-list:hover)) .nx-upload-action-bar:not(.d-print-inline-flex),
 [dir] .nx-theme-styles .nx-theme-form .drop-container.nx-drag-over .drag-file-label,
@@ -896,14 +918,14 @@ body .nx-action-menu-list,
 
 body .nx-action-menu-list .nx-action-message,
 [dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list .nx-action-message {
-  color: var(--pk-ink, #242424) !important;
+  color: var(--pk-ink) !important;
   font-weight: 600 !important;
   margin-bottom: 12px !important;
 }
 
 body .nx-action-menu-list button,
 [dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list button {
-  border-radius: var(--pk-radius, 9px) !important;
+  border-radius: var(--pk-radius) !important;
   font-weight: 700 !important;
   padding: 8px 16px !important;
   transition: all .2s ease !important;
@@ -912,44 +934,44 @@ body .nx-action-menu-list button,
 /* --- Botón Cancelar --- */
 body .nx-action-menu-list [data-e2e="prompt-cancel-button"],
 [dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"] {
-  background: linear-gradient(180deg, var(--pk-white, #fff), var(--pk-surface-tint, #F8F9FA)) !important;
-  border: 1px solid var(--pk-line-strong, #CDD2D8) !important;
-  box-shadow: 0 1px 2px rgba(18, 34, 78, 0.04) !important;
+  background: var(--pk-grad-surface) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  box-shadow: var(--pk-shadow-soft) !important;
   outline: none !important;
 }
 body .nx-action-menu-list [data-e2e="prompt-cancel-button"] *,
 [dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"] * {
-  color: var(--pk-muted, #48545C) !important;
+  color: var(--pk-muted) !important;
 }
 
 body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover,
 [dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover {
-  border-color: var(--pk-primary, #12224E) !important;
-  background: var(--pk-primary-soft, #E6E9F1) !important;
+  border-color: var(--pk-primary) !important;
+  background: var(--pk-primary-soft) !important;
 }
 body .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover *,
 [dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-cancel-button"]:hover * {
-  color: var(--pk-primary-dark, #0A1430) !important;
+  color: var(--pk-primary-dark) !important;
 }
 
 /* --- Botón Eliminar (Forzamos color blanco) --- */
 body .nx-action-menu-list [data-e2e="prompt-confirm-button"],
 [dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"] {
-  background: var(--pk-grad-hero, linear-gradient(128deg,#070E22 0%,#12224E 62%,#3F5C9C 145%)) !important;
+  background: var(--pk-grad-hero) !important;
   border: none !important;
-  box-shadow: 0 4px 8px rgba(18,34,78,.15) !important;
+  box-shadow: 0 4px 8px rgba(var(--pk-shadow-tint),.15) !important;
   outline: none !important;
 }
 /* Ignoramos los hover anteriores y forzamos blanco a las letras */
 body .nx-action-menu-list [data-e2e="prompt-confirm-button"] *,
 [dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"] * {
-  color: var(--pk-white, #fff) !important;
+  color: var(--pk-white) !important;
 }
 
 body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover,
 [dir] .nx-theme-styles .nx-theme-form .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover {
-  background: var(--pk-grad-hero, linear-gradient(128deg,#070E22 0%,#12224E 62%,#3F5C9C 145%)) !important;
-  box-shadow: 0 6px 14px rgba(18,34,78,.3) !important;
+  background: var(--pk-grad-hero) !important;
+  box-shadow: 0 6px 14px rgba(var(--pk-shadow-tint),.3) !important;
   transform: translateY(-2px) !important;
 }
 
