@@ -64,7 +64,7 @@
   width:400%;
   height:400%;
   background-image:url("https://grupopikolin.sharepoint.com/SiteAssets/__siteIcon__Dunlopillo.png");
-  background-repeat:repeat;
+   background-repeat:repeat;
   background-size:var(--pk-watermark-size) auto;
   background-position:center;
   opacity:var(--pk-watermark-opacity);
@@ -1065,7 +1065,192 @@ body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover,
   transform: translateY(-2px) !important;
 }
 
-/* 16. ANIMACIONES  */
+/* 16. FIRMAS  */
+
+/* --- Caja "Select to sign" dentro del formulario --- */
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-placeholder-canvas {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-border {
+  background: var(--pk-glass-2) !important;
+  border: 1.5px dashed var(--pk-line-hover) !important;
+  border-radius: var(--pk-radius) !important;
+  transition: all .15s ease;
+}
+
+/* Hover y foco con teclado */
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-placeholder-canvas:hover .nx-signature-border,
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-placeholder-canvas:focus-visible .nx-signature-border {
+  border-color: var(--pk-primary) !important;
+  border-style: solid !important;
+  box-shadow: var(--pk-focus-ring) !important;
+}
+
+/* Texto "Select to sign" e icono del lápiz */
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-border :is(h5, span, p) {
+  font-family: var(--pk-font) !important;
+  font-weight: 600 !important;
+  color: var(--pk-primary) !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-border ntx-icon :is(svg, svg *) {
+  fill: var(--pk-primary) !important;
+  color: var(--pk-primary) !important;
+}
+
+/* Ya firmado: fondo blanco para que la firma se lea bien */
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-border:has(img, canvas) {
+  background: var(--pk-white) !important;
+  border-style: solid !important;
+  border-color: var(--pk-line-strong) !important;
+}
+
+/* Modo lectura / deshabilitado */
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-read-only, [aria-disabled="true"]) .nx-signature-border {
+  background: var(--pk-disabled-bg) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  box-shadow: none !important;
+  cursor: default !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-read-only, [aria-disabled="true"]) .nx-signature-border :is(h5, span, p, ntx-icon svg, ntx-icon svg *) {
+  color: var(--pk-disabled-fg) !important;
+  fill: var(--pk-disabled-fg) !important;
+}
+
+/* Fondo oscurecido detrás del popup, tintado con el azul corporativo */
+body .cdk-overlay-backdrop.nx-theme-styles-popup-overlay {
+  background:transparent !important;
+}
+
+/* Caja del popup */
+body .mat-mdc-dialog-surface:has([class*="signature-popup"]) {
+  border-radius: var(--pk-radius-lg) !important;
+  overflow: hidden !important;
+  font-family: var(--pk-font) !important;
+}
+
+/* Etiqueta "Required" y asterisco */
+body [class*="signature-popup"] :is(ntx-label, .nx-zinc-control-label, label),
+body [class*="signature-popup"] :is(ntx-label, .nx-zinc-control-label, label) * {
+  font-family: var(--pk-font) !important;
+  color: var(--pk-ink) !important;
+}
+
+body [class*="signature-popup"] :is(.nx-required, [class*="required"], [class*="asterisk"]) {
+  color: var(--pk-primary) !important;
+}
+
+/* Lienzo donde se firma */
+body [class*="signature-popup"] .nx-signature-border,
+body [class*="signature-popup"] canvas {
+  background: var(--pk-white) !important;
+  border: 1.5px dashed var(--pk-line-hover) !important;
+  border-radius: var(--pk-radius) !important;
+}
+
+/* Línea separadora del pie */
+body [class*="signature-popup"] .nx-dialog-actions {
+  border-top: 1px solid var(--pk-line) !important;
+}
+
+/* Botones del popup: base común */
+body .nx-signature-popup-btn-row .btn {
+  font-family: var(--pk-font) !important;
+  font-weight: 700 !important;
+  border-radius: var(--pk-radius) !important;
+  padding: 8px 20px !important;
+  transition: all .15s ease !important;
+  outline: none !important;
+}
+
+/* Botón "Done" (primario) */
+body .nx-signature-popup-btn-row :is([class*="btn-done"], .nx-theme-button-1) {
+  background: var(--pk-grad-hero) !important;
+  color: var(--pk-white) !important;
+  border: none !important;
+  box-shadow: 0 8px 18px -6px var(--pk-btn-shadow-1) !important;
+}
+
+body .nx-signature-popup-btn-row :is([class*="btn-done"], .nx-theme-button-1):hover {
+  box-shadow: 0 12px 26px -5px var(--pk-btn-shadow-2) !important;
+  transform: translateY(-2px);
+}
+
+/* Botón "Clear" (secundario) */
+[dir] body .cdk-overlay-container .nx-signature-popup-btn-row button.btn:not([class*="btn-done"]):not(.nx-theme-button-1) {
+  background: var(--pk-grad-surface) !important;
+  color: var(--pk-muted) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  box-shadow: var(--pk-shadow-soft) !important;
+}
+
+[dir] body .cdk-overlay-container .nx-signature-popup-btn-row button.btn:not([class*="btn-done"]):not(.nx-theme-button-1):hover {
+  border-color: var(--pk-primary) !important;
+  color: var(--pk-primary-dark) !important;
+  background: var(--pk-primary-soft) !important;
+}
+
+/* Botón "Done" del popup (primario, degradado) */
+[dir] body .cdk-overlay-container .nx-signature-popup-btn-row button.btn:is([class*="btn-done"], .nx-theme-button-1) {
+  background: var(--pk-grad-hero) !important;
+  color: var(--pk-white) !important;
+  border: none !important;
+  box-shadow: 0 8px 18px -6px var(--pk-btn-shadow-1) !important;
+}
+
+[dir] body .cdk-overlay-container .nx-signature-popup-btn-row button.btn:is([class*="btn-done"], .nx-theme-button-1):hover {
+  background: var(--pk-grad-hero) !important;
+  color: var(--pk-white) !important;
+  box-shadow: 0 12px 26px -5px var(--pk-btn-shadow-2) !important;
+  transform: translateY(-2px);
+}
+
+/* Enlace "Clear signature" */
+[dir] .nx-theme-styles .nx-theme-form ntx-signature :is(a, button, .btn-link) {
+  display: inline-block !important;
+  margin-top: 8px !important;
+  padding: 6px 16px !important;
+  font-family: var(--pk-font) !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  color: var(--pk-muted) !important;
+  background: var(--pk-grad-surface) !important;
+  border: 1px solid var(--pk-line-strong) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: var(--pk-shadow-soft) !important;
+  transition: all .15s ease !important;
+  cursor: pointer;
+}
+
+[dir] .nx-theme-styles .nx-theme-form ntx-signature :is(a, button, .btn-link):hover {
+  border-color: var(--pk-primary) !important;
+  color: var(--pk-primary-dark) !important;
+  background: var(--pk-primary-soft) !important;
+}
+
+/* Ya firmado*/
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-border:has(img, canvas) {
+  background: var(--pk-white) !important;
+  border-style: solid !important;
+  border-color: var(--pk-line-strong) !important;
+  overflow: hidden !important;
+}
+
+/* La imagen de la firma se adapta a las esquinas redondeadas y no tapa el borde */
+[dir] .nx-theme-styles .nx-theme-form .nx-signature-border :is(img, canvas) {
+  display: block;
+  max-width: 100%;
+  background: transparent !important;
+  border: none !important;
+  border-radius: calc(var(--pk-radius) - 2px) !important;
+}
+
+/* 17. ANIMACIONES  */
 @keyframes pkIn {
   from {
     opacity:0;
@@ -1076,3 +1261,4 @@ body .nx-action-menu-list [data-e2e="prompt-confirm-button"]:hover,
 [dir] .nx-theme-styles .nx-theme-form :is(.form-group,.nx-group-control-container) {
   animation:pkIn .5s ease-out;
 }
+
