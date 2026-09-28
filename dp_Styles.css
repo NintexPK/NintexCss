@@ -188,14 +188,13 @@
 [dir] .nx-theme-styles .nx-theme-form .nx-repeating-section-container {
   position:relative;
   border: none !important;
-  background: var(--pk-glass-1) !important;
-  backdrop-filter: blur(6px) !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
   box-shadow: var(--pk-shadow-card) !important;
   border-radius: var(--pk-radius) !important;
   overflow: hidden;
   margin-top: 10px;
   margin-bottom: 10px;
-  isolation: isolate;
 }
  
 /* Cabecera: sin el fondo azul claro de Nintex, con la línea degradada de los títulos */
@@ -231,7 +230,7 @@
  
 /* Cuerpo: mismo velo que .nx-group-control-body */
 [dir] .nx-theme-styles .nx-theme-form .nx-repeating-section-body {
-  background: var(--pk-glass-2) !important;
+  background: transparent !important;
   border: none !important;
 }
 
