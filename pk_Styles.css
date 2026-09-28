@@ -1192,40 +1192,32 @@ body .nx-signature-popup-btn-row :is([class*="btn-done"], .nx-theme-button-1):ho
 }
 
 /* Botón "Clear" (secundario) */
-[dir] body .cdk-overlay-container .nx-signature-popup-btn-row button.btn:not([class*="btn-done"]) {
+[dir] body .cdk-overlay-container .nx-signature-popup-btn-row button.btn:not([class*="btn-done"]):not(.nx-theme-button-1) {
   background: var(--pk-grad-surface) !important;
   color: var(--pk-muted) !important;
   border: 1px solid var(--pk-line-strong) !important;
   box-shadow: var(--pk-shadow-soft) !important;
 }
 
-[dir] body .cdk-overlay-container .nx-signature-popup-btn-row button.btn:not([class*="btn-done"]):hover {
+[dir] body .cdk-overlay-container .nx-signature-popup-btn-row button.btn:not([class*="btn-done"]):not(.nx-theme-button-1):hover {
   border-color: var(--pk-primary) !important;
   color: var(--pk-primary-dark) !important;
   background: var(--pk-primary-soft) !important;
 }
 
-/* Enlace "Clear signature" bajo la firma, con estilo de botón secundario */
-[dir] .nx-theme-styles .nx-theme-form ntx-signature :is(a, button, .btn-link) {
-  display: inline-block !important;
-  margin-top: 8px !important;
-  padding: 6px 16px !important;
-  font-family: var(--pk-font) !important;
-  font-weight: 700 !important;
-  text-decoration: none !important;
-  color: var(--pk-muted) !important;
-  background: var(--pk-grad-surface) !important;
-  border: 1px solid var(--pk-line-strong) !important;
-  border-radius: var(--pk-radius) !important;
-  box-shadow: var(--pk-shadow-soft) !important;
-  transition: all .15s ease !important;
-  cursor: pointer;
+/* Botón "Done" del popup (primario, degradado) */
+[dir] body .cdk-overlay-container .nx-signature-popup-btn-row button.btn:is([class*="btn-done"], .nx-theme-button-1) {
+  background: var(--pk-grad-hero) !important;
+  color: var(--pk-white) !important;
+  border: none !important;
+  box-shadow: 0 8px 18px -6px var(--pk-btn-shadow-1) !important;
 }
 
-[dir] .nx-theme-styles .nx-theme-form ntx-signature :is(a, button, .btn-link):hover {
-  border-color: var(--pk-primary) !important;
-  color: var(--pk-primary-dark) !important;
-  background: var(--pk-primary-soft) !important;
+[dir] body .cdk-overlay-container .nx-signature-popup-btn-row button.btn:is([class*="btn-done"], .nx-theme-button-1):hover {
+  background: var(--pk-grad-hero) !important;
+  color: var(--pk-white) !important;
+  box-shadow: 0 12px 26px -5px var(--pk-btn-shadow-2) !important;
+  transform: translateY(-2px);
 }
 
 /* 17. ANIMACIONES  */
