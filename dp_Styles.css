@@ -30,7 +30,6 @@
   --pk-glass-1: rgba(255,255,255,.1);
   --pk-glass-2: var(--pk-glass-2);
   --pk-glass-3: rgba(255,255,255,.7);
-  --pk-watermark-img: var(--pk-watermark-img);
   --pk-watermark-size: 460px;
   --pk-watermark-opacity: .08;
   --pk-watermark-veil: radial-gradient(ellipse 180% 180% at 100% 0%,transparent 0%,rgba(255,255,255,.15) 60%,rgba(255,255,255,.55) 100%);
@@ -60,7 +59,7 @@
   left:-150%;
   width:400%;
   height:400%;
-  background-image:var(--pk-watermark-img);
+  background-image:url("https://grupopikolin.sharepoint.com/SiteAssets/__siteIcon__Dunlopillo.png");
   background-repeat:repeat;
   background-size:var(--pk-watermark-size) auto;
   background-position:center;
