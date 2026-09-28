@@ -196,6 +196,7 @@
   overflow: hidden;
   margin-top: 10px;
   margin-bottom: 10px;
+  isolation: isolate;
 }
  
 /* Cabecera: sin el fondo azul claro de Nintex, con la línea degradada de los títulos */
@@ -249,6 +250,20 @@
   margin: 0 !important;
 }
  
+/* Formulario anidado de cada fila*/
+[dir] .nx-theme-styles .nx-theme-form .nx-repeating-section-container .nx-theme-form {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .nx-repeating-section-container .nx-theme-form::before,
+[dir] .nx-theme-styles .nx-theme-form .nx-repeating-section-container .nx-theme-form::after {
+  content: none !important;
+  display: none !important;
+}
+
 /* Separador entre filas */
 [dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section + .ntx-repeating-section-repeated-section {
   border-top: var(--pk-row-divider) !important;
