@@ -618,13 +618,13 @@
 }
 
 body .ng-dropdown-panel .ng-dropdown-panel-items {
-  max-height: var(--pk-dropdown-max, 200px) !important;
+  max-height: var(--pk-dropdown-max, 150px) !important;
   overflow-y: auto !important;
 }
 
 /* Mientras hay una lista abierta */
 [dir] .nx-theme-styles .nx-theme-form:has(.ng-select-opened) {
-  padding-bottom: calc(var(--pk-dropdown-max, 200px) + 20px) !important;
+  padding-bottom: calc(var(--pk-dropdown-max, 150px)+20) !important;
 }
 
 .ng-option-marked {
