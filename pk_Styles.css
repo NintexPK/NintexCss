@@ -614,6 +614,11 @@
 [dir] .nx-theme-styles .nx-theme-form .nx-group-control-container:has(.ng-select-opened) {
   z-index: var(--pk-z-top) !important;
 }
+
+[dir] .nx-theme-styles .nx-theme-form:has(.ng-select-opened) {
+  padding-bottom: 260px !important;
+}
+
 .ng-option-marked {
   background:var(--pk-primary-soft) !important;
   color:var(--pk-ink) !important;
