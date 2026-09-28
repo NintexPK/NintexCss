@@ -52,7 +52,7 @@
   --pk-radius-sm: 4px;
   --pk-z-top: 999999;
   --pk-font: "Open Sans", sans-serif;
-  --pk-dropdown-max: 120px; 
+  --pk-dropdown-max: 180px; 
 
 }
 
@@ -618,13 +618,13 @@
 }
 
 body .ng-dropdown-panel .ng-dropdown-panel-items {
-  max-height: var(--pk-dropdown-max, 240px) !important;
+  max-height: var(--pk-dropdown-max, 200px) !important;
   overflow-y: auto !important;
 }
 
 /* Mientras hay una lista abierta */
 [dir] .nx-theme-styles .nx-theme-form:has(.ng-select-opened) {
-  padding-bottom: calc(var(--pk-dropdown-max, 240px) + 20px) !important;
+  padding-bottom: calc(var(--pk-dropdown-max, 200px) + 20px) !important;
 }
 
 .ng-option-marked {
