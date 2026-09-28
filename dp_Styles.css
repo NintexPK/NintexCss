@@ -17,19 +17,23 @@
   --pk-disabled-fg: #48545C;
   --pk-white: #fff;
   --pk-grad-hero: linear-gradient(128deg,var(--pk-primary-dark) 0%,var(--pk-primary) 50%,var(--pk-primary-light) 130%);
-  --pk-grad-surface: var(--pk-grad-surface);
+  --pk-grad-surface: linear-gradient(180deg,var(--pk-white),var(--pk-surface-tint));
+  --pk-grad-title-line: linear-gradient(90deg,var(--pk-primary) 0%,var(--pk-primary) 6%,var(--pk-line) 46%,transparent 100%);
   --pk-shadow-form: 0 6px 24px rgba(0,0,0,.16);
   --pk-shadow-card: 0 4px 16px rgba(0,0,0,.2);
   --pk-shadow-card-hover: 0 6px 20px rgba(0,0,0,.18);
-  --pk-shadow-popup: var(--pk-shadow-popup);
+  --pk-shadow-popup: 0 4px 12px rgba(0,0,0,.1);
   --pk-shadow-inset: inset 0 1px 2px rgba(var(--pk-shadow-tint),.035);
-  --pk-shadow-soft: var(--pk-shadow-soft);
+  --pk-shadow-soft: 0 1px 2px rgba(var(--pk-shadow-tint),.04);
+  --pk-shadow-calendar: 0 3px 13px rgba(0,0,0,.08);
   --pk-btn-shadow-1: rgba(var(--pk-shadow-tint),.40);
   --pk-btn-shadow-2: rgba(var(--pk-shadow-tint),.55);
-  --pk-focus-ring: var(--pk-focus-ring);
+  --pk-focus-ring: 0 0 0 3.5px var(--pk-primary-soft);
   --pk-glass-1: rgba(255,255,255,.1);
-  --pk-glass-2: var(--pk-glass-2);
+  --pk-glass-2: rgba(255,255,255,.4);
   --pk-glass-3: rgba(255,255,255,.7);
+  --pk-glass-section: rgba(255,255,255,.85);
+  --pk-row-divider: 1px dashed var(--pk-line-strong);
   --pk-watermark-size: 460px;
   --pk-watermark-opacity: .08;
   --pk-watermark-veil: radial-gradient(ellipse 180% 180% at 100% 0%,transparent 0%,rgba(255,255,255,.15) 60%,rgba(255,255,255,.55) 100%);
@@ -38,6 +42,7 @@
   --pk-radius-sm: 4px;
   --pk-z-top: 999999;
   --pk-font: "Open Sans", sans-serif;
+
 }
 
 [dir] .nx-theme-styles .nx-theme-form {
@@ -184,7 +189,7 @@
 [dir] .nx-theme-styles .nx-theme-form .nx-repeating-section-container {
   position:relative;
   border: none !important;
-  background: var(--pk-glass-1) !important;
+  background: var(--pk-glass-section) !important;
   backdrop-filter: blur(6px) !important;
   box-shadow: var(--pk-shadow-card) !important;
   border-radius: var(--pk-radius) !important;
@@ -227,7 +232,7 @@
 /* Cuerpo: mismo velo que .nx-group-control-body */
 [dir] .nx-theme-styles .nx-theme-form .nx-repeating-section-body,
 [dir] .nx-theme-styles .nx-theme-form .nx-repeating-section-body > .nx-panel-content {
-  background: var(--pk-glass-2) !important;
+  background: transparent !important;
   border: none !important;
 }
  
