@@ -361,7 +361,7 @@
 
 /* Pequeña separación entre líneas */
 [dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext p + p {
-  margin-top: 6px !important;
+  margin-top: 0px !important;
 }
 
 /* Párrafos vacíos que deja el editor entre líneas */
