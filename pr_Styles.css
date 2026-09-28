@@ -348,6 +348,27 @@
   color:var(--pk-primary-dark) !important;
 }
 
+/* Interlineado compacto en el título */
+[dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext,
+[dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext * {
+  line-height: 1.25 !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Pequeña separación entre líneas */
+[dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext p + p {
+  margin-top: 6px !important;
+}
+
+/* Párrafos vacíos que deja el editor entre líneas */
+[dir] .nx-theme-styles .nx-theme-form .pk-title .nx-theme-richtext p:is(:empty, :has(> br:only-child)) {
+  display: none !important;
+}
+
 /*  6. CAMPOS DE TEXTO Y DESPLEGABLES */
 [dir] .nx-theme-styles .nx-theme-form :is(.form-control.nx-theme-input-1,.nx-theme-ng-select-1 .ng-select-container) {
   border-radius:var(--pk-radius) !important;
