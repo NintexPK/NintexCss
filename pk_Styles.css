@@ -60,7 +60,7 @@
   font-family: var(--pk-font);
   position: relative !important;
   z-index: 0 !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   background: var(--pk-white) !important;
   box-shadow: var(--pk-shadow-form) !important;
   border-radius: var(--pk-radius) !important;
@@ -70,17 +70,14 @@
   content:"" !important;
   display:block !important;
   position:absolute !important;
-  top:-150%;
-  left:-150%;
-  width:400%;
-  height:400%;
-  background-image:url("https://grupopikolin.sharepoint.com/SiteAssets/__sitelogo__Logotipo_Pikolin_group.png");
+  inset:0;
+  border-radius:inherit;
+  background-image:url("https://grupopikolin.sharepoint.com/SiteAssets/__bg__Logo_Pikolin_group.png");
   background-repeat:repeat;
-  background-size:var(--pk-watermark-size) auto;
+  background-size:3498px 3498px;
   background-position:center;
   opacity:var(--pk-watermark-opacity);
   filter:grayscale(.1);
-  transform:rotate(-16deg);
   pointer-events:none;
   z-index:-1;
 }
@@ -90,6 +87,7 @@
   display:block !important;
   position:absolute !important;
   inset:0;
+  border-radius:inherit;
   background:var(--pk-watermark-veil);
   pointer-events:none;
   z-index:-1;
