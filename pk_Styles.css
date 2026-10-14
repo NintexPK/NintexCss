@@ -60,7 +60,7 @@
   font-family: var(--pk-font);
   position: relative !important;
   z-index: 0 !important;
-  overflow: hidden !important;
+  /*overflow: hidden !important;*/
   background: var(--pk-white) !important;
   box-shadow: var(--pk-shadow-form) !important;
   border-radius: var(--pk-radius) !important;
@@ -622,10 +622,10 @@ body .ng-dropdown-panel .ng-dropdown-panel-items {
 }
 
 /* Mientras hay una lista abierta, el formulario reserva ese mismo hueco abajo */
-[dir] .nx-theme-styles .nx-theme-form:has(.ng-select-opened) {
+/*[dir] .nx-theme-styles .nx-theme-form:has(.ng-select-opened) {
   padding-bottom: calc(var(--pk-dropdown-max, 180px) + 20px) !important;
 }
-
+*/
 .ng-option-marked {
   background:var(--pk-primary-soft) !important;
   color:var(--pk-ink) !important;
