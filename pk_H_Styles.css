@@ -43,7 +43,7 @@
   --pk-glass-3: rgba(255,255,255,.7);
   --pk-row-divider: 1px dashed var(--pk-line-strong);
   --pk-watermark-size: 460px;
-  --pk-watermark-opacity: .08;
+  --pk-watermark-opacity: .05;
   --pk-watermark-veil: radial-gradient(ellipse 180% 180% at 100% 0%,transparent 0%,rgba(255,255,255,.15) 60%,rgba(255,255,255,.55) 100%);
  
   /* Forma, capas y tipografía */
