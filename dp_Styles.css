@@ -1278,7 +1278,7 @@ body .nx-signature-popup-btn-row :is([class*="btn-done"], .nx-theme-button-1):ho
 }
  
 /* 17. TABLA EDITABLE (plugin NAC table v2) */
-andys-table-v2 {
+andys-table-v2, andys-table-v3 {
   --nac-font: var(--pk-font);
   --nac-ink: var(--pk-ink);
   --nac-radius: var(--pk-radius);
@@ -1306,7 +1306,7 @@ andys-table-v2 {
 }
 
 /* Contenedor del plugin con el mismo aspecto de tarjeta que el resto */
-[dir] .nx-theme-styles .nx-theme-form #plugin-container:has(andys-table-v2) {
+[dir] .nx-theme-styles .nx-theme-form #plugin-container:has(andys-table-v2, andys-table-v3) {
   background: var(--pk-glass-3);
   border-radius: var(--pk-radius);
   box-shadow: var(--pk-shadow-card);
