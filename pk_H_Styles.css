@@ -53,6 +53,7 @@
   --pk-z-top: 999999;
   --pk-font: "Open Sans", sans-serif;
   --pk-dropdown-max: 180px;
+  --pk-row-alt: rgba(0,0,0,.035);
  
   /* Ancho del formulario (versión ancha) */
   --pk-form-max: 65vw;
@@ -251,12 +252,17 @@
   border: none !important;
 }
  
-/* Filas: se anula el fondo alterno gris de Nintex y el fondo blanco del formulario anidado */
-[dir] .nx-theme-styles .nx-theme-form :is(.ntx-repeating-section-repeated-section, .ntx-repeating-section-alternate-background),
+/* Filas: fondo transparente y sin el fondo blanco del formulario anidado */
+[dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section,
 [dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section :is(.nx-form-runtime, .nx-form-runtime-content, .nx-theme-page) {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+/* Filas alternas: gris suave para distinguir cada elemento repetido */
+[dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section.ntx-repeating-section-alternate-background {
+  background: var(--pk-row-alt) !important;
 }
  
 [dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section {
