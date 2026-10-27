@@ -261,7 +261,7 @@
 }
 
 /* Filas alternas: gris suave para distinguir cada elemento repetido */
-[dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section.ntx-repeating-section-alternate-background {
+[dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section:nth-of-type(even) {
   background: var(--pk-row-alt) !important;
 }
  
