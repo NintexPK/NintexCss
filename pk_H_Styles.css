@@ -204,7 +204,7 @@
   backdrop-filter: none !important;
   box-shadow: var(--pk-shadow-card) !important;
   border-radius: var(--pk-radius) !important;
-  overflow: hidden;
+  overflow: visible !important;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -882,6 +882,13 @@ span.flatpickr-weekday {
 .numInputWrapper span.arrowUp:hover,
 .numInputWrapper span.arrowDown:hover {
   background: var(--pk-primary-soft) !important;
+}
+
+/* Secciones repetibles: el calendario o la lista abierta quedan por encima de lo demás */
+[dir] .nx-theme-styles .nx-theme-form :is(.nx-repeating-section-container, .ntx-repeating-section-repeated-section):has(.flatpickr-calendar.open, .ng-select-opened) {
+  position: relative !important;
+  z-index: var(--pk-z-top) !important;
+  overflow: visible !important;
 }
  
 /* --- 14. ADJUNTOS --- */
