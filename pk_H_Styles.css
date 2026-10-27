@@ -1286,7 +1286,43 @@ body .nx-signature-popup-btn-row :is([class*="btn-done"], .nx-theme-button-1):ho
   max-width: none !important;
 }
 
-/* 18. ANIMACIONES  */
+/* 18. TABLA EDITABLE (plugin NAC table v2) */
+andys-table-v2 {
+  --nac-font: var(--pk-font);
+  --nac-ink: var(--pk-ink);
+  --nac-radius: var(--pk-radius);
+  --nac-radius-sm: var(--pk-radius-sm);
+
+  --nac-primary: var(--pk-primary);
+  --nac-primary-dark: var(--pk-primary-dark);
+  --nac-primary-soft: var(--pk-primary-soft);
+  --nac-danger: var(--pk-primary);
+  --nac-disabled-fg: var(--pk-line-hover);
+
+  --nac-toolbar-bg: var(--pk-surface-tint);
+  --nac-btn-color: var(--pk-muted);
+
+  --nac-line: var(--pk-line);
+  --nac-line-strong: var(--pk-line-strong);
+  --nac-header-bg: var(--pk-surface-tint);
+  --nac-header-fg: var(--pk-ink);
+  --nac-header-border: var(--pk-primary);
+
+  --nac-hover-bg: var(--pk-surface-tint);
+  --nac-selected-bg: var(--pk-primary-soft);
+  --nac-selected-fg: var(--pk-ink);
+  --nac-selected-border: var(--pk-primary);
+}
+
+/* Contenedor del plugin con el mismo aspecto de tarjeta que el resto */
+[dir] .nx-theme-styles .nx-theme-form #plugin-container:has(andys-table-v2) {
+  background: var(--pk-glass-3);
+  border-radius: var(--pk-radius);
+  box-shadow: var(--pk-shadow-card);
+  padding: 12px;
+}
+
+/* 19. ANIMACIONES  */
 @keyframes pkIn {
   from {
     opacity:0;
