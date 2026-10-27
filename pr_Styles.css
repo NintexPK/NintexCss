@@ -248,12 +248,21 @@
   border: none !important;
 }
 
-/* Filas: se anula el fondo alterno gris de Nintex y el fondo blanco del formulario anidado */
-[dir] .nx-theme-styles .nx-theme-form :is(.ntx-repeating-section-repeated-section, .ntx-repeating-section-alternate-background),
+/* Filas: fondo transparente y sin el fondo blanco del formulario anidado */
+[dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section,
 [dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section :is(.nx-form-runtime, .nx-form-runtime-content, .nx-theme-page) {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+/* Filas alternas: gris suave para distinguir cada elemento repetido */
+/*Caso A*/
+[dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section:nth-child(even of .ntx-repeating-section-repeated-section),
+
+/* Caso B: cada fila va dentro de su propio contenedor */
+[dir] .nx-theme-styles .nx-theme-form :nth-child(even of :has(> .ntx-repeating-section-repeated-section):not(:has(> .ntx-repeating-section-repeated-section ~ .ntx-repeating-section-repeated-section))) > .ntx-repeating-section-repeated-section {
+  background: var(--pk-row-alt) !important;
 }
  
 [dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section {
