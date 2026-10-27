@@ -261,10 +261,10 @@
 }
 
 /* Filas alternas: gris suave para distinguir cada elemento repetido */
-[dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section:nth-of-type(even) {
+[dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section.ntx-repeating-section-alternate-background {
   background: var(--pk-row-alt) !important;
 }
- 
+
 [dir] .nx-theme-styles .nx-theme-form .ntx-repeating-section-repeated-section {
   padding: 6px 0 12px !important;
   margin: 0 !important;
