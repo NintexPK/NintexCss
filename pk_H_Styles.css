@@ -56,9 +56,8 @@
   --pk-row-alt: rgba(0,0,0,.035);
  
   /* Ancho del formulario (versión ancha) */
-  /*--pk-form-max: 75vw;*/
   --pk-form-width: 85%;    
-  --pk-form-max: 1120px; 
+  --pk-form-max: 1080px; 
 }
  
 /* 2. MARCA DE AGUA (FONDO GIGANTE) */
