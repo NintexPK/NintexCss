@@ -56,7 +56,9 @@
   --pk-row-alt: rgba(0,0,0,.035);
  
   /* Ancho del formulario (versión ancha) */
-  --pk-form-max: 75vw;
+  /*--pk-form-max: 75vw;*/
+  --pk-form-width: 92%;    
+  --pk-form-max: 1600px; 
 }
  
 /* 2. MARCA DE AGUA (FONDO GIGANTE) */
@@ -1290,16 +1292,25 @@ body .nx-signature-popup-btn-row :is([class*="btn-done"], .nx-theme-button-1):ho
   border-radius: calc(var(--pk-radius) - 2px) !important;
 }
  
-/* 17. ANCHO DEL FORMULARIO (versión ancha: ocupa casi toda la pantalla) */
-[dir] .nx-theme-styles :is(.nx-form-runtime, .nx-form-runtime-content, .nx-theme-page, .nx-theme-form) {
-  max-width: var(--pk-form-max) !important;
+/* 17. ANCHO DEL FORMULARIO (versión ancha) */
+
+/* Contenedores de Nintex: sin límite propio, ocupan todo el ancho */
+[dir] .nx-theme-styles :is(.nx-form-runtime, .nx-form-runtime-content, .nx-theme-page) {
+  max-width: none !important;
   width: 100% !important;
+}
+
+/* Formulario principal: porcentaje del espacio disponible, con tope */
+[dir] .nx-theme-styles .nx-theme-form {
+  width: var(--pk-form-width) !important;
+  max-width: var(--pk-form-max) !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
- 
-/* El formulario anidado de las secciones repetibles no se limita */
-[dir] .nx-theme-styles .nx-repeating-section-container :is(.nx-form-runtime, .nx-form-runtime-content, .nx-theme-page, .nx-theme-form) {
+
+/* Formulario anidado de las secciones repetibles: ocupa toda la fila */
+[dir] .nx-theme-styles .nx-repeating-section-container .nx-theme-form {
+  width: 100% !important;
   max-width: none !important;
 }
 
