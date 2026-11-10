@@ -562,6 +562,19 @@
   border-color: var(--pk-primary) !important;
   color: var(--pk-primary) !important;
 }
+/* pk-notF en Labels: aviso en rojo, sin validación que bloquee el envío */
+[dir] .nx-theme-styles .nx-theme-form .pk-notF .nx-theme-richtext {
+  background: var(--pk-primary-soft) !important;
+  border-left: 4px solid var(--pk-primary) !important;
+  border-radius: var(--pk-radius-sm) !important;
+  padding: 8px 12px !important;
+}
+
+[dir] .nx-theme-styles .nx-theme-form .pk-notF .nx-theme-richtext,
+[dir] .nx-theme-styles .nx-theme-form .pk-notF .nx-theme-richtext * {
+  color: var(--pk-primary) !important;
+  font-weight: 600 !important;
+}
  
 /*   9. ETIQUETAS DE CAMPO Y ASTERISCO OBLIGATORIO */
 [dir] .nx-theme-styles .nx-theme-form .nx-form-label.nx-break-word {
