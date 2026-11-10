@@ -562,6 +562,7 @@
   border-color: var(--pk-primary) !important;
   color: var(--pk-primary) !important;
 }
+
 /* pk-notF en Labels: aviso en rojo, sin validación que bloquee el envío */
 [dir] .nx-theme-styles .nx-theme-form .pk-notF .nx-theme-richtext {
   background: var(--pk-primary-soft) !important;
