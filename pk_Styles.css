@@ -19,6 +19,8 @@
   --pk-disabled-bg: #EFECEA;
   --pk-disabled-fg: #514B49;
   --pk-white: #fff;
+  --pk-ok: #7CC49A;          
+  --pk-ok-soft: #EEF8F2;
 
   /* Degradados */
   --pk-grad-hero: linear-gradient(128deg,#3A0A0D 0%,var(--pk-primary) 62%,var(--pk-primary-light) 145%);
@@ -569,6 +571,18 @@
 [dir] .nx-theme-styles .nx-theme-form .pk-notF .nx-theme-richtext * {
   color: var(--pk-primary) !important;
   font-weight: 600 !important;
+}
+
+/* Vacío: borde en el color principal */
+[dir] .nx-theme-styles .nx-theme-form .pk-req .ng-select:not(.ng-has-value):not(:has(.ng-value)) .ng-select-container {
+  border: 1.5px solid var(--pk-primary) !important;
+  box-shadow: 0 0 0 3px var(--pk-primary-soft) !important;
+}
+
+/* Con valor: borde verde suave */
+[dir] .nx-theme-styles .nx-theme-form .pk-req .ng-select:is(.ng-has-value, :has(.ng-value)) .ng-select-container {
+  border: 1.5px solid var(--pk-ok) !important;
+  box-shadow: 0 0 0 3px var(--pk-ok-soft) !important;
 }
 
 /*   9. ETIQUETAS DE CAMPO Y ASTERISCO OBLIGATORIO */
